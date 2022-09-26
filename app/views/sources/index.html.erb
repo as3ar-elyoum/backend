@@ -1,0 +1,15 @@
+<h1>Sources</h1>
+<table>
+    <% @sources.each do |source| %>
+    <tr>
+        <td><%= source.id %></td>
+        <td><%= source.name %></td>
+        <td><%= source.url %></td>
+        <td><%= source.active %></td>
+    </tr>
+    <% end %>
+</table>
+
+<a href="<%= new_source_path(@source) %>" style="text-decoration:none; margin: 10px 0px 0px 20px;">
+  <input type="button" value="Add Source">
+</a>

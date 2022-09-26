@@ -1,0 +1,19 @@
+<%= form_with model: @source do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :url %><br>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <%= form.label :active %><br>
+    <%= form.text_field :active %>
+  </div>
+
+  <button type="submit" class="btn btn-success" style="margin-top: 20px;">Submit</button>
+
+<% end %>
