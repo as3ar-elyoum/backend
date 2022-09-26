@@ -1,0 +1,4 @@
+# websites_worker:
+#   cron: '* * * * *' # runs every minutes
+#   class: "WorkerNameExample"
+#   queue: queue_name
