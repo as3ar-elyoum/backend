@@ -1,0 +1,2 @@
+class SourcePage < ApplicationRecord
+end
