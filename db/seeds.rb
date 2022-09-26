@@ -1,7 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+btech = Source.create(name: 'بي تك', url: 'https://btech.com/ar/', url_prefix: '', active: true)
+
+page = SourcePage.create(source: btech, url: 'https://btech.com/ar/moblies/mobile-phones-smartphones/smartphones.html',
+                         selectors: { product_urls: '.product-item-view a' }.to_json, active: true)
