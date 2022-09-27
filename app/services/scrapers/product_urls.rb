@@ -4,22 +4,22 @@ module Scrapers
 
     def initialize(source_page_id)
       @source_page = SourcePage.find source_page_id
-      @url_prefix = @source_page.source.url_prefix.to_s
+      @source = @source_page.source
+      @url_prefix = @source.url_prefix.to_s
       @url = @source_page.url
+      @selectors = JSON.parse(@source_page.selectors)
     end
 
     def perform
       @document = fetch_document
-      fetch_product_links
+      links = fetch_product_links
+      Products::Create.call(links, @source, @source_page)
     end
 
     def fetch_product_links
-      links = @document.search '.product-item-view a'
+      links = @document.search @selectors['product_urls']
       links = links.map(&:values).flatten.uniq
-      puts @url_prefix
-      puts links.last
       links = links.map { |item| @url_prefix + item }
-      puts links.last
       links.select { |url| url.match? URL_REGEXP }
     end
 
