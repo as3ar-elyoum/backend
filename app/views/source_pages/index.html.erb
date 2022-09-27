@@ -1,0 +1,24 @@
+<h1>Source Pages</h1>
+<table class="table table-bordered" style="margin: 20px;">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Url</th>
+    <th scope="col">Url Prefix</th>
+    <th scope="col">Active</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @source_pages.each do |source_page| %>
+    <tr>
+        <th><%= source_page.id %></th>
+        <td><%= source_page.name %></td>
+        <td><%= source_page.url %></td>
+        <td><%= source_page.active %></td>
+    </tr>
+    <% end %>
+</table>
+
+
+

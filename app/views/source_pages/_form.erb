@@ -1,0 +1,13 @@
+<%= form_with model: [ @source, @source.source_pages.build ] do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :url %><br>
+    <%= form.text_area :url %>
+  </p>
+  <p>
+    <button type="submit" class="btn btn-success" style="margin-top: 20px;">Submit</button>
+  </p>
+<% end %>
