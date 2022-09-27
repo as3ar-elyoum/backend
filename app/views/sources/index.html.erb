@@ -7,7 +7,7 @@
     <th scope="col">Url</th>
     <th scope="col">Url Prefix</th>
     <th scope="col">Active</th>
-    <th scope="col">Source Page</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -18,15 +18,15 @@
         <td><%= source.url %></td>
         <td><%= source.url_prefix %></td>
         <td><%= source.active %></td>
-        <td><%= render source.source_pages %></td>
-        <td><%= link_to "Add Source Page", source %></td>
+        <td><%= link_to "Add Source", new_source_path %> 
+        |
+        <%= link_to "Add Source Page", new_source_source_page_path(source) %>
+        |
+        <%= link_to "Show Source Pages", source_source_pages_path(source)%>
+        </td>
     </tr>
     <% end %>
 </table>
-
-<a href="<%= new_source_path(@source) %>" style="text-decoration:none; margin: 10px 0px 0px 20px;">
-  <input type="button" value="Add Source">
-</a>
 
 
 
