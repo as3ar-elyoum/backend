@@ -1,0 +1,16 @@
+[
+    {
+        "name": "بي تك",
+        "url": "https://btech.com/ar/",
+        "active": true,
+        "pages": [
+            {
+                "name": "smartphones",
+                "url": "https://btech.com/ar/moblies/mobile-phones-smartphones/smartphones.html",
+                "active": true,
+                "selectors": 
+                "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }"
+            }
+        ]
+    }
+]

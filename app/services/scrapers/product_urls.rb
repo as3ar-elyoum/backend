@@ -7,7 +7,7 @@ module Scrapers
       @source = @source_page.source
       @url_prefix = @source.url_prefix.to_s
       @url = @source_page.url
-      @selectors=JSON.parse(@source_page.selectors)
+      @selectors = @source_page.parsed_selectors
     end
 
     def perform

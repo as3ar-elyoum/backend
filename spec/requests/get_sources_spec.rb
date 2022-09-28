@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  # let!(:sources) { create_list(:source, 20) }
+  let!(:sources) { create_list(:source, 20) }
 
   describe 'GET /index' do
     before do
