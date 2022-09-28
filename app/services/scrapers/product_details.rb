@@ -11,14 +11,16 @@ module Scrapers
 
     def perform
       @document = fetch_document
-      title = fetch_product_title
+      name = fetch_product_title
       price = fetch_product_price
-      image = fetch_product_image
-      { title: title, price: price, image: image }
+      image_url = fetch_product_image
+      product_details={ name: name, price: price, image_url: image_url }
+      Products::Update.call(@product.id,product_details)
+
     end
 
     def fetch_product_title
-      @document.search(@selectors['title']).first.text.strip
+      @document.search('.base').first.text.strip
     end
 
     def fetch_product_price
