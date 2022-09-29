@@ -1,4 +1,23 @@
-btech = Source.create(name: 'بي تك', url: 'https://btech.com/ar/', url_prefix: '', active: true)
+require 'csv'
 
-page = SourcePage.create(source: btech, name: 'A', url: 'https://btech.com/ar/moblies/mobile-phones-smartphones/smartphones.html',
-                         selectors: { product_urls: '.product-item-view a' }.to_json, active: true)
+def create_sources
+  file_content = File.read('public/sources.json')
+  json_data = JSON.parse(file_content)
+
+  json_data.each do |entry|
+    source = Source.find_or_create_by(url: entry['url'])
+    source.name = entry['name']
+    source.active = entry['active'] || true
+    source.save
+
+    entry['pages'].each do |page_entry|
+      page = SourcePage.find_or_create_by(url: page_entry['url'])
+      page.selectors = page_entry['selectors']
+      page.name = page_entry['name']
+      page.source = source
+      page.save
+    end
+  end
+end
+
+create_sources

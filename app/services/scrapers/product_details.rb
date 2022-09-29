@@ -5,16 +5,17 @@ module Scrapers
     def initialize(product_id)
       @product = Product.find product_id
       @source_page = @product.source_page
-      @selectors = JSON.parse @source_page.selectors
+      @selectors = @source_page.parsed_selectors
       @url = @product.url
     end
 
     def perform
       @document = fetch_document
-      title = fetch_product_title
+      name = fetch_product_title
       price = fetch_product_price
-      image = fetch_product_image
-      { title: title, price: price, image: image }
+      image_url = fetch_product_image
+      product_details = { name: name, price: price, image_url: image_url }
+      Products::Update.call(@product.id, product_details)
     end
 
     def fetch_product_title
@@ -22,11 +23,11 @@ module Scrapers
     end
 
     def fetch_product_price
-      @document.search('.price-huge-static').first.text.strip.gsub(',', '').to_f
+      @document.search(@selectors['price']).first.text.strip.gsub(',', '').to_f
     end
 
     def fetch_product_image
-      @document.search('img').first['src']
+      @document.search(@selectors['image']).first['src']
     end
 
     def fetch_product_description

@@ -5,5 +5,5 @@ class Source < ApplicationRecord
   has_many :products
 
   validates :name, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, uniqueness: true
 end
