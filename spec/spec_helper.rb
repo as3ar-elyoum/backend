@@ -12,15 +12,13 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.before(:suite) do
+  config.before(:each) do
     config.render_views
 
-    # DatabaseCleaner.strategy = :deletion
-    # DatabaseCleaner.clean_with :truncation
+    DatabaseCleaner.strategy = :deletion
+    DatabaseCleaner.clean_with :truncation
 
-    # REDIS_CLIENT.flushall
-    # DatabaseCleaner.start
-    # DatabaseCleaner.clean
-    # load Rails.root.join('db', 'seeds.rb')
+    DatabaseCleaner.start
+    DatabaseCleaner.clean
   end
 end
