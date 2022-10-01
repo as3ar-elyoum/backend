@@ -10,4 +10,22 @@ FactoryBot.define do
       '{ "product_urls": ".a-link-normal.s-no-outline", "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
     end
   end
+
+  trait :carrefour_vegetables_page do
+    name { 'Vegetables' }
+    url { 'https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded' }
+    selectors do
+      '{ "product_urls": ".css-14tfefh ul a",
+      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+    end
+  end
+
+  trait :jumia_vegetables_page do
+    name { 'Vegetables' }
+    url { 'https://www.jumia.com.eg/ar/groceries/?tag=FDYJE' }
+    selectors do
+      '{ "product_urls": "article.prd a",
+      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+    end
+  end
 end
