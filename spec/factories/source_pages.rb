@@ -43,7 +43,7 @@ FactoryBot.define do
     url { 'https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/' }
     selectors do
       '{ "product_urls": ".sc-5e739f1b-0 a",
-      "title": ".sc-147923c3-12 bMgsdS", "price": ".sc-ac248257-1 bEaNkb strong", "image": ".sc-a1431ab-2 jNGvqr img[src]" }'
+      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": ".sc-a1431ab-2 img.sc-afe2674f-1" }'
     end
   end
 end

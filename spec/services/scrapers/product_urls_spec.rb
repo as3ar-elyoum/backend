@@ -43,7 +43,6 @@ RSpec.describe Scrapers::ProductUrls do
     let(:noon_source) { create(:source, :noon) }
     let(:noon_televisions_page) { create(:source_page, :noon_televisions_page, source: noon_source) }
     it 'returns product urls' do
-      byebug
       product_urls = Scrapers::ProductUrls.new(noon_televisions_page.id).perform
       expect(product_urls).to be_an_instance_of(Array)
       expect(product_urls.empty?).to be_falsey
