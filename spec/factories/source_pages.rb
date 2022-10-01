@@ -28,4 +28,22 @@ FactoryBot.define do
       "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
     end
   end
+
+  trait :btech_electronics_page do
+    name { 'Electronics' }
+    url { 'https://btech.com/ar/laptop.html' }
+    selectors do
+      '{ "product_urls": ".product-item-view a",
+      "title": ".plpTitle", "price": "#old-price-172943 .price-wrapper", "image": ".product-image-wrapper img .product-image-photo" }'
+    end
+  end
+
+  trait :noon_televisions_page do
+    name { 'Televisions' }
+    url { 'https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/' }
+    selectors do
+      '{ "product_urls": ".sc-5e739f1b-0 a",
+      "title": ".sc-147923c3-12 bMgsdS", "price": ".sc-ac248257-1 bEaNkb strong", "image": ".sc-a1431ab-2 jNGvqr img[src]" }'
+    end
+  end
 end
