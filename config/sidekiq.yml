@@ -2,3 +2,8 @@ queues:
   - default
   - source_page_scraper
   - product_details_scraper
+
+:limits:
+  default: 2
+  source_page_scraper: 4
+  product_details_scraper: 4

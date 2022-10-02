@@ -59,6 +59,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'sidekiq'
   gem 'sidekiq-cron'
+  gem 'sidekiq-limit_fetch'
 end
 
 group :development do

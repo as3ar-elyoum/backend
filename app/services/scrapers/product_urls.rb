@@ -12,15 +12,21 @@ module Scrapers
 
     def perform
       @document = fetch_document
-      links = fetch_links
-      Products::Create.call(links, @source, @source_page)
+      urls = fetch_urls
+      Products::Create.call(urls, @source, @source_page)
     end
 
-    def fetch_links
-      links = @document.search @selectors['product_urls']
-      links = links.map(&:values).flatten.uniq
-      links = links.map { |item| @url_prefix + item }
-      links.select { |url| url.match? URL_REGEXP }
+    def fetch_urls
+      urls = @document.search @selectors['product_urls']
+      urls = urls.map(&:values).flatten.uniq
+      urls = urls.map { |url| @url_prefix + url }
+      urls = urls.select { |url| url.match? URL_REGEXP }
+
+      urls.map do |url|
+        url = URI.parse(url)
+        url.query = nil
+        url.to_s
+      end
     end
 
     def fetch_document
