@@ -11,32 +11,33 @@ module Scrapers
 
     def perform
       @document = fetch_document
-      name = fetch_title
-      price = fetch_price
-      image_url = fetch_image
+      name = fetch_product_title
+      price = fetch_product_price
+      image_url = fetch_product_image
       product_details = { name: name, price: price, image_url: image_url }
       Products::Update.call(@product.id, product_details)
     end
 
-    def fetch_title
+    def fetch_product_title
       @document.search(@selectors['title']).first.text.strip
     end
 
-    def fetch_price
-      @document.search(@selectors['price']).first.text.delete('^0-9.').to_f
+    def fetch_product_price
+      @document.search(@selectors['price']).first.text.strip.gsub(',', '').to_f
     end
 
-    def fetch_image
-      @document.search(@selectors['image']).map(&:values).flatten.select { |value| value.match? URL_REGEXP }.first
+    def fetch_product_image
+      @document.search(@selectors['image']).map(&:values).flatten
+               .select { |url| url.match? URL_REGEXP }.first
     end
 
-    def fetch_description
+    def fetch_product_description
       @document.search('#accordion').text.strip
     end
 
     def fetch_document
       mechanize_agent = Mechanize.new
-      mechanize_agent.user_agent_alias = 'Mac Safari'
+      mechanize_agent.user_agent_alias = 'Linux Mozilla'
       @document = mechanize_agent.get(@url)
       @document.encoding = 'utf-8'
       @document
