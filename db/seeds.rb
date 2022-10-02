@@ -8,6 +8,7 @@ def create_sources
     source = Source.find_or_create_by(url: entry['url'])
     source.name = entry['name']
     source.active = entry['active'] || true
+    source.url_prefix = entry['url_prefix']
     source.save
 
     entry['pages'].each do |page_entry|
