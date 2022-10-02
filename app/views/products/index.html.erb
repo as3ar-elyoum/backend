@@ -1,0 +1,34 @@
+<h1>Products</h1>
+<table class="table table-bordered" style="margin: 20px;">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Url</th>
+    <th scope="col">Image URL</th>
+    <th scope="col">Scraped At</th>
+    <th scope="col">Price</th>
+    <th scope="col">Source Name</th>
+    <th scope="col">Source Page</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <th><%= product.id %></th>
+      <td><%= product.name %></td>
+      <td><%= product.url %></td>
+      <td><%= product.image_url %></td>
+      <td><%= product.scraped_at %></td>
+      <td><%= product.price %></td>
+      <td><%= product.source %></td>
+      <td><%= product.source_page %></td>
+
+      <%= link_to "Show Product Page", product_path(product) %>
+    </tr>
+  <% end %>
+  </table>
+
+
+
