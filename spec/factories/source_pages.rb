@@ -15,8 +15,8 @@ FactoryBot.define do
     name { 'Vegetables' }
     url { 'https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded' }
     selectors do
-      '{ "product_urls": ".css-lzsise ul a",
-      "title": ".css-106scfp", "price": ".css-17ctnp", "image": ".css-1d0skzn img" }'
+      '{ "product_urls": ".css-14tfefh ul a",
+      "title": "h1.css-106scfp", "price": ".css-148pv1t", "image": ".css-1d0skzn img" }'
     end
   end
 
@@ -43,7 +43,7 @@ FactoryBot.define do
     url { 'https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/' }
     selectors do
       '{ "product_urls": ".sc-5e739f1b-0 a",
-      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": "#sc-afe2674f-1 cfKlFZ img" }'
+      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": "meta[property=\"og:image\"]" }'
     end
   end
 end

@@ -11,26 +11,26 @@ module Scrapers
 
     def perform
       @document = fetch_document
-      name = fetch_product_title
-      price = fetch_product_price
-      image_url = fetch_product_image
+      name = fetch_title
+      price = fetch_price
+      image_url = fetch_image
       product_details = { name: name, price: price, image_url: image_url }
       Products::Update.call(@product.id, product_details)
     end
 
-    def fetch_product_title
+    def fetch_title
       @document.search(@selectors['title']).first.text.strip
     end
 
-    def fetch_product_price
-      @document.search(@selectors['price']).first.text.strip.gsub(',', '').to_f
+    def fetch_price
+      @document.search(@selectors['price']).first.text.delete('^0-9.').to_f
     end
 
-    def fetch_product_image
-      @document.search(@selectors['image']).first['src']
+    def fetch_image
+      @document.search(@selectors['image']).map(&:values).flatten.select { |value| value.match? URL_REGEXP }.first
     end
 
-    def fetch_product_description
+    def fetch_description
       @document.search('#accordion').text.strip
     end
 

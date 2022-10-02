@@ -28,4 +28,9 @@ FactoryBot.define do
     name { nil }
     url { 'https://www.jumia.com.eg/ar/flour-1kg-aldoha-mpg860489.html' }
   end
+
+  trait :carrefour_tomatoes_product do
+    name { nil }
+    url { 'https://www.carrefouregypt.com/mafegy/ar/root-maf-category//fruits-vegetables-herbs/vegetables/tomato/a-tomato-local/p/32631?list_name=category%7Cfruits-vegetables-rounded' }
+  end
 end
