@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'sidekiq'
+  gem 'sidekiq-cron'
 end
 
 group :development do

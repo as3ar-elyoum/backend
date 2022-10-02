@@ -1,2 +1,4 @@
 queues:
   - default
+  - source_page_scraper
+  - product_details_scraper
