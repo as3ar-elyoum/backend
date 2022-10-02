@@ -12,11 +12,11 @@ module Scrapers
 
     def perform
       @document = fetch_document
-      links = fetch_product_links
+      links = fetch_links
       Products::Create.call(links, @source, @source_page)
     end
 
-    def fetch_product_links
+    def fetch_links
       links = @document.search @selectors['product_urls']
       links = links.map(&:values).flatten.uniq
       links = links.map { |item| @url_prefix + item }

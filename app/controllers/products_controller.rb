@@ -1,9 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
-  end
-
-  def show
-    @product = Product.find(params[:id])
+    @products = Product.includes(:source, :source_page).order(updated_at: :desc).all
   end
 end
