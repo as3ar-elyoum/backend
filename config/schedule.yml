@@ -1,4 +1,10 @@
-# websites_worker:
-#   cron: '* * * * *' # runs every minutes
-#   class: "WorkerNameExample"
-#   queue: queue_name
+source_pages:
+  cron: '* * * * *' # runs every minutes
+  class: "SourcePagesCheckWorker"
+  queue: default
+
+
+products:
+  cron: '* * * * *' # runs every minutes
+  class: "ProductsCheckWorker"
+  queue: default
