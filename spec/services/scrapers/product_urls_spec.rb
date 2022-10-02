@@ -28,4 +28,24 @@ RSpec.describe Scrapers::ProductUrls do
       expect(product_urls.empty?).to be_falsey
     end
   end
+
+  context 'when the source is btech' do
+    let(:btech_source) { create(:source, :btech) }
+    let(:btech_electronics_page) { create(:source_page, :btech_electronics_page, source: btech_source) }
+    it 'returns product urls' do
+      product_urls = Scrapers::ProductUrls.new(btech_electronics_page.id).perform
+      expect(product_urls).to be_an_instance_of(Array)
+      expect(product_urls.empty?).to be_falsey
+    end
+  end
+
+  context 'when the source is noon' do
+    let(:noon_source) { create(:source, :noon) }
+    let(:noon_televisions_page) { create(:source_page, :noon_televisions_page, source: noon_source) }
+    it 'returns product urls' do
+      product_urls = Scrapers::ProductUrls.new(noon_televisions_page.id).perform
+      expect(product_urls).to be_an_instance_of(Array)
+      expect(product_urls.empty?).to be_falsey
+    end
+  end
 end

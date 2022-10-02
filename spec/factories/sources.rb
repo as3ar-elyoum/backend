@@ -18,4 +18,14 @@ FactoryBot.define do
     url { 'https://www.jumia.com.eg/' }
     url_prefix { 'https://www.jumia.com.eg' }
   end
+
+  trait :btech do
+    url { 'https://btech.com/ar/' }
+    url_prefix { '' }
+  end
+
+  trait :noon do
+    url { 'https://www.noon.com/egypt-ar/' }
+    url_prefix { 'https://www.noon.com' }
+  end
 end

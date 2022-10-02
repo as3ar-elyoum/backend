@@ -27,7 +27,8 @@ module Scrapers
     end
 
     def fetch_product_image
-      @document.search(@selectors['image']).first['src']
+      @document.search(@selectors['image']).map(&:values).flatten
+               .select { |url| url.match? URL_REGEXP }.first
     end
 
     def fetch_product_description
@@ -36,7 +37,7 @@ module Scrapers
 
     def fetch_document
       mechanize_agent = Mechanize.new
-      mechanize_agent.user_agent_alias = 'Mac Safari'
+      mechanize_agent.user_agent_alias = 'Linux Mozilla'
       @document = mechanize_agent.get(@url)
       @document.encoding = 'utf-8'
       @document

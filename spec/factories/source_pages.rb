@@ -16,7 +16,7 @@ FactoryBot.define do
     url { 'https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded' }
     selectors do
       '{ "product_urls": ".css-14tfefh ul a",
-      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+      "title": "h1.css-106scfp", "price": ".css-148pv1t", "image": ".css-1d0skzn img" }'
     end
   end
 
@@ -25,7 +25,25 @@ FactoryBot.define do
     url { 'https://www.jumia.com.eg/ar/groceries/?tag=FDYJE' }
     selectors do
       '{ "product_urls": "article.prd a",
-      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+      "title": ".col10", "price": ".-phs", "image": "#imgs img" }'
+    end
+  end
+
+  trait :btech_electronics_page do
+    name { 'Electronics' }
+    url { 'https://btech.com/ar/laptop.html' }
+    selectors do
+      '{ "product_urls": ".product-item-view a",
+      "title": ".base", "price": ".price", "image": "#mtImageContainerMagic img" }'
+    end
+  end
+
+  trait :noon_televisions_page do
+    name { 'Televisions' }
+    url { 'https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/' }
+    selectors do
+      '{ "product_urls": ".sc-5e739f1b-0 a",
+      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": "meta[property=\"og:image\"]" }'
     end
   end
 end
