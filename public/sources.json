@@ -27,5 +27,20 @@
                 "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
             }
         ]
+    },
+    {
+        "name": "كارفور",
+        "url": "https://www.carrefouregypt.com/",
+        "url_prefix": "https://www.carrefouregypt.com",
+        "active": true,
+        "pages": [
+            {
+                "name": "smartphones",
+                "url": "https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded",
+                "active": true,
+                "selectors": 
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \".css-148pv1t\", \"image\": \".css-1d0skzn img\" }"
+            }
+        ]
     }
 ]

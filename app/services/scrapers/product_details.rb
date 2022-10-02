@@ -23,7 +23,7 @@ module Scrapers
     end
 
     def fetch_product_price
-      @document.search(@selectors['price']).first.text.strip.gsub(',', '').to_f
+      @document.search(@selectors['price']).first.text.delete('^0-9.').to_f
     end
 
     def fetch_product_image
