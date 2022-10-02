@@ -11,6 +11,21 @@ FactoryBot.define do
 
   trait :noon_tv_product do
     name { nil }
-    url { 'https://www.noon.com/egypt-ar/32-inch-hd-led-tv-3222a-black/N25937075A/p/?o=d135e85bf7718e1f' }
+    url { 'https://www.noon.com/egypt-ar/toshiba-4k-smart-frameless-led-tv-55-inch-with-built-in-receiver-55u5965ea-black/N40855040A/p/?o=b4496a48bee794ad' }
+  end
+
+  trait :carrefour_product do
+    name { nil }
+    url { 'https://www.carrefouregypt.com/mafegy/ar/root-maf-category//fruits-vegetables-herbs/vegetables/tomato/a-tomato-local/p/32631?list_name=category%7Cfruits-vegetables-rounded' }
+  end
+
+  trait :btech_laptop_product do
+    name { nil }
+    url { 'https://btech.com/ar/lenovo-ideapad-3-intel-n4020-15-6-1tb-freedos-grey.html' }
+  end
+
+  trait :jumia_product do
+    name { nil }
+    url { 'https://www.jumia.com.eg/ar/flour-1kg-aldoha-mpg860489.html' }
   end
 end

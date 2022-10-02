@@ -15,8 +15,8 @@ FactoryBot.define do
     name { 'Vegetables' }
     url { 'https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded' }
     selectors do
-      '{ "product_urls": ".css-14tfefh ul a",
-      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+      '{ "product_urls": ".css-lzsise ul a",
+      "title": ".css-106scfp", "price": ".css-17ctnp", "image": ".css-1d0skzn img" }'
     end
   end
 
@@ -25,7 +25,7 @@ FactoryBot.define do
     url { 'https://www.jumia.com.eg/ar/groceries/?tag=FDYJE' }
     selectors do
       '{ "product_urls": "article.prd a",
-      "title": "#productTitle", "price": "#corePriceDisplay_desktop_feature_div .a-price-whole", "image": "#imgTagWrapperId img" }'
+      "title": ".col10", "price": ".-phs", "image": "#imgs img" }'
     end
   end
 
@@ -34,7 +34,7 @@ FactoryBot.define do
     url { 'https://btech.com/ar/laptop.html' }
     selectors do
       '{ "product_urls": ".product-item-view a",
-      "title": ".plpTitle", "price": "#old-price-172943 .price-wrapper", "image": ".product-image-wrapper img .product-image-photo" }'
+      "title": ".base", "price": ".price", "image": "#mtImageContainerMagic img" }'
     end
   end
 
@@ -43,7 +43,7 @@ FactoryBot.define do
     url { 'https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/' }
     selectors do
       '{ "product_urls": ".sc-5e739f1b-0 a",
-      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": ".sc-a1431ab-2 img.sc-afe2674f-1" }'
+      "title": ".sc-3681ebc8-12", "price": ".priceNow", "image": "#sc-afe2674f-1 cfKlFZ img" }'
     end
   end
 end
