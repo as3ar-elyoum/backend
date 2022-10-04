@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :source_pages
   end
   resources :products
+  resources :categories
 end

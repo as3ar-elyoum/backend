@@ -1,0 +1,23 @@
+<h1>Categories</h1>
+<table class="table table-bordered" style="margin: 20px;">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each do |category| %>
+    <tr>
+      <th><%= category.id %></th>
+      <td><%= category.name %></td>
+      <td>
+        <%= link_to 'New', new_category_path, class: 'btn btn-outline-success' %>
+        <%= link_to 'Show', category_path(category), class: 'btn btn-outline-dark' %>
+        <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-primary' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
