@@ -2,7 +2,7 @@ class SourcePage < ApplicationRecord
   attribute :active, default: true
 
   belongs_to :source
-
+  has_many :category
   has_many :products
 
   validates :name, presence: true
