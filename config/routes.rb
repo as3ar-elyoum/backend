@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :source_pages
   end
   resources :products
-  resources :categories
+  resources :categories, except: %i[show]
 end
