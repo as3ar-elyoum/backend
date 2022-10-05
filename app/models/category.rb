@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
   validates :name, presence: true
 
-  belongs_to :source_pages
+  has_many :source_pages
 end

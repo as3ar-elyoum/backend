@@ -6,7 +6,6 @@ class CreateSourcePages < ActiveRecord::Migration[7.0]
       t.boolean :active
       t.string :selectors
       t.references :source, index: true
-      t.references :source_page, index: true, foreign_key: true
 
       t.timestamps
     end

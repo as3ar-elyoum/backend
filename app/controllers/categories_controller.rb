@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   before_action :find_category, only: %i[edit update]
 
   def index
