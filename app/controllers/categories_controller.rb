@@ -11,13 +11,13 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    redirect_to root_path if @category.save!
+    redirect_to categories_path if @category.save!
   end
 
   def edit; end
 
   def update
-    redirect_to root_path if @category.update(category_params)
+    redirect_to categories_path if @category.update(category_params)
   end
 
   private
