@@ -10,53 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_02_212801) do
+ActiveRecord::Schema[7.0].define(version: 20_221_005_173_716) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "product_prices", force: :cascade do |t|
-    t.bigint "product_id"
-    t.decimal "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_prices_on_product_id"
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.string "image_url"
-    t.text "description"
-    t.datetime "scraped_at"
-    t.decimal "price"
-    t.boolean "active"
-    t.bigint "source_id"
-    t.bigint "source_page_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["source_id"], name: "index_products_on_source_id"
-    t.index ["source_page_id"], name: "index_products_on_source_page_id"
-    t.index ["url"], name: "index_products_on_url", unique: true
+  create_table 'product_prices', force: :cascade do |t|
+    t.bigint 'product_id'
+    t.decimal 'price'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['product_id'], name: 'index_product_prices_on_product_id'
   end
 
-  create_table "source_pages", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.boolean "active"
-    t.string "selectors"
-    t.bigint "source_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["source_id"], name: "index_source_pages_on_source_id"
+  create_table 'products', force: :cascade do |t|
+    t.string 'name'
+    t.string 'url'
+    t.string 'image_url'
+    t.text 'description'
+    t.datetime 'scraped_at'
+    t.decimal 'price'
+    t.boolean 'active'
+    t.bigint 'source_id'
+    t.bigint 'source_page_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['source_id'], name: 'index_products_on_source_id'
+    t.index ['source_page_id'], name: 'index_products_on_source_page_id'
+    t.index ['url'], name: 'index_products_on_url', unique: true
   end
 
-  create_table "sources", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.string "url_prefix"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'source_pages', force: :cascade do |t|
+    t.string 'name'
+    t.string 'url'
+    t.boolean 'active'
+    t.string 'selectors'
+    t.bigint 'source_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'category_id'
+    t.index ['category_id'], name: 'index_source_pages_on_category_id'
+    t.index ['source_id'], name: 'index_source_pages_on_source_id'
   end
 
+  create_table 'sources', force: :cascade do |t|
+    t.string 'name'
+    t.string 'url'
+    t.string 'url_prefix'
+    t.boolean 'active'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
 end

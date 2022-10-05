@@ -56,6 +56,7 @@ group :development, :test do
   gem 'faker'
   gem 'redis-rails'
   gem 'rspec-rails'
+  gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'sidekiq'
   gem 'sidekiq-cron'
