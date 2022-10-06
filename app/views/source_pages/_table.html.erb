@@ -10,15 +10,14 @@
   </thead>
   <tbody>
   <% @source_pages.each do |source_page| %>
-    <% source = source_page.source %>
     <tr>
       <th><%= source_page.id %></th>
       <td><%= source_page.name %></td>
       <td><%= source_page.url %></td>
       <td><%= source_page.active %></td>
       <td>
-        <%= link_to 'Edit', edit_source_source_page_path(source, source_page), class: 'btn btn-outline-success btn-sm' %>
-        <%= link_to "Destroy", source_source_page_path(source, source_page), data: {
+        <%= link_to 'Edit', edit_source_source_page_path(@source, source_page), class: 'btn btn-outline-success btn-sm' %>
+        <%= link_to "Destroy", source_source_page_path(@source, source_page), data: {
           turbo_method: :delete,
           turbo_confirm: "Are you sure?"
         }, class: 'btn btn-outline-danger btn-sm' %>
