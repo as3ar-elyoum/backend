@@ -32,6 +32,21 @@
         ]
     },
     {
+        "name": "Noon",
+        "url": "https://www.noon.com/egypt-ar/",
+        "url_prefix": "https://www.noon.com",
+        "active": true,
+        "pages": [
+            {
+                "name": "TVs",
+                "url": "https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".sc-5e739f1b-0 a\", \"title\": \"#__next h1\", \"price\": \".priceNow\", \"image\": \"meta[property='og:image']\" }"
+            }
+            ]
+        },
+    {
         "name": "Amazon",
         "url": "https://amazon.eg",
         "url_prefix": "https://amazon.eg",
@@ -81,25 +96,25 @@
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded",
                 "active": true,
                 "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \".css-148pv1t\", \"image\": \".css-1d0skzn img\" }"
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
             },{
                 "name": "أطعمة مجمّدة                ",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/FEGY6000000",
                 "active": true,
                 "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
             },{
                 "name": "الإلكترونيات والأجهزة المنزلية                ",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4000000",
                 "active": true,
                 "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
             },{
                 "name": "أجهزة الكمبيوتر المحمولة                ",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4070500",
                 "active": true,
                 "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
             }
         ]
     }
