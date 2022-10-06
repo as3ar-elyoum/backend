@@ -43,6 +43,30 @@
                 "active": true,
                 "selectors":
                 "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "TV",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832982031&fs=true&ref=lp_21832982031_sar",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "Electronics",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832872031&fs=true&ref=lp_21832872031_sar",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "PC",
+                "url": "https://www.amazon.eg/s?i=electronics&bbn=21832872031&rh=n%3A18018102031%2Cn%3A21832872031%2Cn%3A21832914031&dc&fs=true&ds=v1%3A%2FGMzBir7WqOQeeuv4tU1gNk8lMmBasGziLBUhhZPeWs&qid=1665072800&rnid=21832872031&ref=sr_nr_n_4",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "Laptop",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832907031&fs=true&ref=lp_21832907031_sar",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
             }
         ]
     },
