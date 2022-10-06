@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_173805) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_184226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_173805) do
     t.bigint "source_page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
     t.index ["source_id"], name: "index_products_on_source_id"
     t.index ["source_page_id"], name: "index_products_on_source_page_id"
     t.index ["url"], name: "index_products_on_url", unique: true
@@ -55,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_173805) do
     t.datetime "updated_at", null: false
     t.bigint "category_id"
     t.datetime "scraped_at"
+    t.text "notes"
     t.index ["category_id"], name: "index_source_pages_on_category_id"
     t.index ["source_id"], name: "index_source_pages_on_source_id"
   end
