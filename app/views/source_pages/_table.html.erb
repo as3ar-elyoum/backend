@@ -20,7 +20,7 @@
       <td><%= source_page.parsed_selectors %></td>
       <td><%= source_page.active %></td>
       <td>
-        <%= link_to 'Edit', edit_source_source_page_path(source, source_page),
+        <%= link_to 'Edit', edit_source_source_page_path(@source, source_page),
                     class: 'btn btn-outline-success btn-sm' %>
         <%= link_to "Destroy", source_source_page_path(@source, source_page), data: {
           turbo_method: :delete,
