@@ -1,32 +1,6 @@
-<h1>Sources</h1>
-<table class="table table-bordered" style="margin: 20px;">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Url</th>
-    <th scope="col">Url Prefix</th>
-    <th scope="col">Active</th>
-    <th scope="col">Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-    <% @sources.each do |source| %>
-    <tr>
-        <th><%= source.id %></th>
-        <td><%= source.name %></td>
-        <td><%= source.url %></td>
-        <td><%= source.url_prefix %></td>
-        <td><%= source.active %></td>
-        <td><%= link_to "Add Source", new_source_path %> 
-        |
-        <%= link_to "Add Source Page", new_source_source_page_path(source) %>
-        |
-        <%= link_to "Show Source Pages", source_source_pages_path(source)%>
-        </td>
-    </tr>
-    <% end %>
-</table>
+<h1>Sources <%= link_to "Add Source", new_source_path, class: 'btn btn-outline-success' %> </h1>
+
+<%= render partial: "table" %>
 
 
 
