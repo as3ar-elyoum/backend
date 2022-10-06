@@ -14,6 +14,8 @@ module Scrapers
       @document = fetch_document
       urls = fetch_urls
       Products::Create.call(urls, @source, @source_page)
+      scraped_at = Time.now
+      @source_page.update(scraped_at: scraped_at)
     end
 
     def fetch_urls
