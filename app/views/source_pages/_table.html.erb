@@ -4,6 +4,7 @@
     <th scope="col">#</th>
     <th scope="col">Name</th>
     <th scope="col">Url</th>
+    <th scope="col">Selectors</th>
     <th scope="col">Active</th>
     <th scope="col">Actions</th>
   </tr>
@@ -14,6 +15,7 @@
       <th><%= source_page.id %></th>
       <td><%= source_page.name %></td>
       <td><%= source_page.url %></td>
+      <td><%= source_page.parsed_selectors %></td>
       <td><%= source_page.active %></td>
       <td>
         <%= link_to 'Edit', edit_source_source_page_path(@source, source_page), class: 'btn btn-outline-success btn-sm' %>
