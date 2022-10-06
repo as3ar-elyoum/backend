@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   end
   resources :products
   resources :categories, except: %i[show]
+
+  defaults format: :json do
+    namespace :api do
+      resources :products
+    end
+  end
 end
