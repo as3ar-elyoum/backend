@@ -8,7 +8,25 @@
                 "name": "smartphones",
                 "url": "https://btech.com/ar/moblies/mobile-phones-smartphones/smartphones.html",
                 "active": true,
-                "selectors": 
+                "selectors":
+                "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }"
+            },{
+                "name": "TV",
+                "url": "https://btech.com/ar/tv-home-theater.html",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }"
+            },{
+                "name": "Electronics",
+                "url": "https://btech.com/ar/laptop-tablet.html",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }"
+            },{
+                "name": "اجهزة منزلية كبيرة",
+                "url": "https://btech.com/ar/major-domestic-appliances/shop-all-mda.html",
+                "active": true,
+                "selectors":
                 "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }"
             }
         ]
@@ -23,7 +41,31 @@
                 "name": "smartphones",
                 "url": "https://www.amazon.eg/s?bbn=21832883031&rh=n%3A21832883031%2Cp_89%3AApple&pf_rd_i=21832883031&pf_rd_m=A1ZVRGNO5AYLOV&pf_rd_p=3791cc79-77bb-4e44-a238-b42dd45cafcd&pf_rd_r=49SG1HGGBHW9N8D3Y5DT&pf_rd_s=merchandised-search-14&pf_rd_t=101&ref=s9_acss_bw_cg_ATF1208_3a1_w",
                 "active": true,
-                "selectors": 
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "TV",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832982031&fs=true&ref=lp_21832982031_sar",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "Electronics",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832872031&fs=true&ref=lp_21832872031_sar",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "PC",
+                "url": "https://www.amazon.eg/s?i=electronics&bbn=21832872031&rh=n%3A18018102031%2Cn%3A21832872031%2Cn%3A21832914031&dc&fs=true&ds=v1%3A%2FGMzBir7WqOQeeuv4tU1gNk8lMmBasGziLBUhhZPeWs&qid=1665072800&rnid=21832872031&ref=sr_nr_n_4",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+            },{
+                "name": "Laptop",
+                "url": "https://www.amazon.eg/s?rh=n%3A21832907031&fs=true&ref=lp_21832907031_sar",
+                "active": true,
+                "selectors":
                 "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
             }
         ]
@@ -38,8 +80,26 @@
                 "name": "smartphones",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded",
                 "active": true,
-                "selectors": 
+                "selectors":
                 "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \".css-148pv1t\", \"image\": \".css-1d0skzn img\" }"
+            },{
+                "name": "أطعمة مجمّدة                ",
+                "url": "https://www.carrefouregypt.com/mafegy/ar/c/FEGY6000000",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
+            },{
+                "name": "الإلكترونيات والأجهزة المنزلية                ",
+                "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4000000",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
+            },{
+                "name": "أجهزة الكمبيوتر المحمولة                ",
+                "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4070500",
+                "active": true,
+                "selectors":
+                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2.css-17ctnp\", \"image\": \".css-1d0skzn img\" }"
             }
         ]
     }
