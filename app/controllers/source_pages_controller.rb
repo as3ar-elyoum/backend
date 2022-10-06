@@ -1,6 +1,6 @@
 class SourcePagesController < ApplicationController
-  before_action :set_source, only: %i[index new create edit update]
-  before_action :set_source_page, only: %i[edit update]
+  before_action :set_source, only: %i[index new create edit update destroy]
+  before_action :set_source_page, only: %i[edit update destroy]
 
   def index
     @source_pages = @source.source_pages.all
@@ -19,6 +19,11 @@ class SourcePagesController < ApplicationController
   def create
     @source_page = @source.source_pages.create(source_page_params)
     redirect_to source_path(@source)
+  end
+
+  def destroy
+    @source_page.destroy
+    redirect_to source_source_pages_path
   end
 
   private

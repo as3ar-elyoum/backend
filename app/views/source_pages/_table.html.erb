@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Url</th>
+    <th scope="col">Active</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @source_pages.each do |source_page| %>
+    <% source = source_page.source %>
+    <tr>
+      <th><%= source_page.id %></th>
+      <td><%= source_page.name %></td>
+      <td><%= source_page.url %></td>
+      <td><%= source_page.active %></td>
+      <td>
+        <%= link_to 'Edit', edit_source_source_page_path(source, source_page), class: 'btn btn-outline-success' %>
+        <%= button_to 'Destroy', source_source_page_path(source, source_page), method: :delete, class: "btn btn-outline-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
