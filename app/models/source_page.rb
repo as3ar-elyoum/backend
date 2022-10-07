@@ -12,7 +12,7 @@ class SourcePage < ApplicationRecord
   scope :inactive, -> { where(active: false) }
 
   def parsed_selectors
-    JSON.parse(selectors)
+    JSON.parse(source.selectors)
   end
 
   def enqueue_scraper

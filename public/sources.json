@@ -3,6 +3,7 @@
         "name": "بي تك",
         "url": "https://btech.com/ar/",
         "active": true,
+        "selectors":   "{\"product_urls\": \".product-item-view a\", \"title\": \".page-title\", \"price\": \".price-huge-static\", \"image\": \"#mtImageContainerMagic img\" }",
         "pages": [
             {
                 "name": "smartphones",
@@ -36,13 +37,12 @@
         "url": "https://www.noon.com/egypt-ar/",
         "url_prefix": "https://www.noon.com",
         "active": true,
+        "selectors": "{\"product_urls\": \".sc-5e739f1b-0 a\", \"title\": \"#__next h1\", \"price\": \".priceNow\", \"image\": \"meta[property='og:image']\" }",
         "pages": [
             {
                 "name": "TVs",
                 "url": "https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".sc-5e739f1b-0 a\", \"title\": \"#__next h1\", \"price\": \".priceNow\", \"image\": \"meta[property='og:image']\" }"
+                "active": true
             }
             ]
         },
@@ -51,37 +51,29 @@
         "url": "https://amazon.eg",
         "url_prefix": "https://amazon.eg",
         "active": true,
+        "selectors": "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }",
         "pages": [
             {
                 "name": "smartphones",
-                "url": "https://www.amazon.eg/s?bbn=21832883031&rh=n%3A21832883031%2Cp_89%3AApple&pf_rd_i=21832883031&pf_rd_m=A1ZVRGNO5AYLOV&pf_rd_p=3791cc79-77bb-4e44-a238-b42dd45cafcd&pf_rd_r=49SG1HGGBHW9N8D3Y5DT&pf_rd_s=merchandised-search-14&pf_rd_t=101&ref=s9_acss_bw_cg_ATF1208_3a1_w",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
-            },{
+                "url": "https://www.amazon.eg/s?bbn=21832883031&rh=n%3A21832883031%2Cp_89%3AApple&pf_rd_i=21832883031&pf_rd_m=A1ZVRGNO5AYLOV&pf_rd_p=3791cc79-77bb-4e44-a238-b42dd45cafcd&pf_rd_r=49SG1HGGBHW9N8D3Y5DT&pf_rd_s=merchandised-search-14&pf_rd_t=101&ref=s9_acss_bw_cg_ATF1208_3a1_w&language=ar_AE",
+                "active": true
+            },
+            {
                 "name": "TV",
-                "url": "https://www.amazon.eg/s?rh=n%3A21832982031&fs=true&ref=lp_21832982031_sar",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+                "url": "https://www.amazon.eg/s?rh=n%3A21832982031&fs=true&ref=lp_21832982031_sar&language=ar_AE",
+                "active": true
             },{
                 "name": "Electronics",
                 "url": "https://www.amazon.eg/s?rh=n%3A21832872031&fs=true&ref=lp_21832872031_sar",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+                "active": true
             },{
                 "name": "PC",
-                "url": "https://www.amazon.eg/s?i=electronics&bbn=21832872031&rh=n%3A18018102031%2Cn%3A21832872031%2Cn%3A21832914031&dc&fs=true&ds=v1%3A%2FGMzBir7WqOQeeuv4tU1gNk8lMmBasGziLBUhhZPeWs&qid=1665072800&rnid=21832872031&ref=sr_nr_n_4",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+                "url": "https://www.amazon.eg/s?i=electronics&language=ar_AE&bbn=21832872031&rh=n%3A18018102031%2Cn%3A21832872031%2Cn%3A21832914031&dc&fs=true&ds=v1%3A%2FGMzBir7WqOQeeuv4tU1gNk8lMmBasGziLBUhhZPeWs&qid=1665072800&rnid=21832872031&ref=sr_nr_n_4",
+                "active": true
             },{
                 "name": "Laptop",
-                "url": "https://www.amazon.eg/s?rh=n%3A21832907031&fs=true&ref=lp_21832907031_sar",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }"
+                "url": "https://www.amazon.eg/s?rh=n%3A21832907031&fs=true&language=ar_AE&ref=lp_21832907031_sar",
+                "active": true
             }
         ]
     },
@@ -90,31 +82,24 @@
         "url": "https://www.carrefouregypt.com/",
         "url_prefix": "https://www.carrefouregypt.com",
         "active": true,
+        "selectors": "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }",
         "pages": [
             {
                 "name": "smartphones",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/fruits-vegetables-rounded",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
+                "active": true
             },{
-                "name": "أطعمة مجمّدة                ",
+                "name": "أطعمة مجمّدة",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/FEGY6000000",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
+                "active": true
             },{
-                "name": "الإلكترونيات والأجهزة المنزلية                ",
+                "name": "الإلكترونيات والأجهزة المنزلية",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4000000",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
+                "active": true
             },{
-                "name": "أجهزة الكمبيوتر المحمولة                ",
+                "name": "أجهزة الكمبيوتر المحمولة",
                 "url": "https://www.carrefouregypt.com/mafegy/ar/c/NFEGY4070500",
-                "active": true,
-                "selectors":
-                "{\"product_urls\": \".css-14tfefh ul a\", \"title\": \"h1.css-106scfp\", \"price\": \"h2\", \"image\": \".css-1d0skzn img\" }"
+                "active": true
             }
         ]
     }

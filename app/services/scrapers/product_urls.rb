@@ -27,7 +27,7 @@ module Scrapers
       urls.map do |url|
         url = URI.parse(url)
         url.query = nil
-        url.to_s
+        url.to_s.gsub(/ref=[a-z]+_[0-9]+_[0-9]+/, '')
       end
     end
 
