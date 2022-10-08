@@ -15,6 +15,7 @@ def create_sources
     entry['pages'].each do |page_entry|
       page = SourcePage.find_or_create_by(url: page_entry['url'])
       page.name = page_entry['name']
+      page.paginated = page_entry['paginated'] || false
       page.source = source
       page.save
     end

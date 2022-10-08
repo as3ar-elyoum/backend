@@ -5,5 +5,5 @@ queues:
 
 :limits:
   default: 2
-  source_page_scraper: 4
-  product_details_scraper: 4
+  source_page_scraper: 2
+  product_details_scraper: 8

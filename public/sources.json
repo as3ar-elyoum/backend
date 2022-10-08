@@ -63,12 +63,13 @@
                 "url": "https://www.amazon.eg/s?rh=n%3A21832982031&fs=true&ref=lp_21832982031_sar&language=ar_AE",
                 "active": true
             },{
-                "name": "Electronics",
+                "name": "bla",
                 "url": "https://www.amazon.eg/s?rh=n%3A21832872031&fs=true&ref=lp_21832872031_sar",
                 "active": true
             },{
-                "name": "PC",
-                "url": "https://www.amazon.eg/s?i=electronics&language=ar_AE&bbn=21832872031&rh=n%3A18018102031%2Cn%3A21832872031%2Cn%3A21832914031&dc&fs=true&ds=v1%3A%2FGMzBir7WqOQeeuv4tU1gNk8lMmBasGziLBUhhZPeWs&qid=1665072800&rnid=21832872031&ref=sr_nr_n_4",
+                "name": "Electronics",
+                "url": "https://www.amazon.eg/s?i=electronics&page=page_number&language=ar_AE",
+                "paginated": true,
                 "active": true
             },{
                 "name": "Laptop",
