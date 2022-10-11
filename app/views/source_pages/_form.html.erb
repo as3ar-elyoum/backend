@@ -9,14 +9,14 @@
   </p>
 
    <p>
-    <%= form.label :selectors %><br>
-    <%= form.text_area :selectors %>
+      <div class="col"><%= form.select :category_id, Category.all.pluck(:name,:id), {prompt:'Category'},{class: "form-control"}%> </div>
   </p>
 
   <p>
-    <%= form.label :paginated %><br>
+    <%= form.label :paginated %>
     <%= form.check_box :paginated %>
   </p>
+ 
   <p>
     <button type="submit" class="btn btn-success" style="margin-top: 20px;">Submit</button>
   </p>
