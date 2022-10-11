@@ -1,24 +1,36 @@
-# README
+# Crime Index
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Dependencies**
 
-Things you may want to cover:
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Ruby](https://github.com/ruby/ruby)
+- [Rails](https://github.com/rails/rails)
+- [Posgres](https://www.postgresql.org/about/news/postgresql-13-released-2077/)
 
-* Ruby version
+### Install Docker and DockerCompose
 
-* System dependencies
+### Setup Environment
 
-* Configuration
 
-* Database creation
+#### since we have a makefile
 
-* Database initialization
+- up and run dependencies
+```sh
+$ make services
+```
 
-* How to run the test suite
+- start rails server
+```sh
+$ make server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- start rails console
+```sh
+$ make console
+```
 
-* Deployment instructions
-
-* ...
+- start sidekiq
+```sh
+$ make sidekiq
+```
