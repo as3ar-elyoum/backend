@@ -1,6 +1,9 @@
 include environment.env
 
-dev:
+build:
+	docker-compose build
+
+up:
 	docker-compose up
 
 console:
