@@ -1,12 +1,10 @@
 include environment.env
+
 dev:
 	docker-compose up
 
 console:
-	docker-compose exec rails console
-
-sidekiq:
-	docker-compose exec bundle exec sidekiq
+	docker-compose exec backend rails console
 
 bash:
 	docker-compose exec backend bash
