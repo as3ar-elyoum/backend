@@ -1,12 +1,16 @@
 include environment.env
-services:
-	docker-compose up -d
 
-server:
-	rails server
+dev:
+	docker-compose up
 
 console:
-	rails console
+	docker-compose exec backend rails console
 
-sidekiq:
-	bundle exec sidekiq
+bash:
+	docker-compose exec backend bash
+
+stop:
+	docker-compose stop
+
+down:
+	docker-compose down
