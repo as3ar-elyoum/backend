@@ -16,6 +16,7 @@ services:
     restart: always
 
   backend: 
+    image: priceindex-backend
     build: .
     entrypoint: /app/entrypoint.sh
     ports:
@@ -30,7 +31,7 @@ services:
     restart: always
   
   sidekiq: 
-    image: as3ar-elyoum-backend_backend
+    image: priceindex-backend
     command: 'bundle exec sidekiq -e $RAILS_ENV'
     volumes:
       - .:/app
