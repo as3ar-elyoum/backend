@@ -10,13 +10,37 @@ services:
       test: "exit 0"
     volumes:
       - postgres:/var/lib/postgresql
-    ports:
-      - "5440:5432"
+
   redis:
     image: redis:6.0
     restart: always
+
+  backend: 
+    build: .
+    entrypoint: /app/entrypoint.sh
     ports:
-      - "6370:6379"
+      - "80:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - environment.env
+    restart: always
+  
+  sidekiq: 
+    image: as3ar-elyoum-backend_backend
+    command: 'bundle exec sidekiq -e $RAILS_ENV'
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+      - backend
+    env_file:
+      - environment.env
+    restart: always
 
 volumes:
   postgres:
