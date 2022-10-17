@@ -33,15 +33,15 @@
         ]
     },
     {
-        "name": "Noon",
-        "url": "https://www.noon.com/egypt-ar/",
-        "url_prefix": "https://www.noon.com",
+        "name": "Raneen",
+        "url": "https://www.raneen.com/ar",
+        "url_prefix": "",
         "active": true,
-        "selectors": "{\"product_urls\": \".sc-5e739f1b-0 a\", \"title\": \"#__next h1\", \"price\": \".priceNow\", \"image\": \"meta[property='og:image']\" }",
+        "selectors": "{\"product_urls\": \"li a.product.photo.product-item-photo\", \"title\": \"h1.page-title\", \"price\": \".price-container .price\", \"image\": \"meta[property='og:image']\" }",
         "pages": [
             {
-                "name": "TVs",
-                "url": "https://www.noon.com/egypt-ar/electronics-and-mobiles/television-and-video/televisions/",
+                "name": "Kitchen",
+                "url": "https://www.raneen.com/ar/kitchen?p=page_number&product_list_limit=50",
                 "active": true
             }
             ]

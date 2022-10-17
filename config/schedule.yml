@@ -1,9 +1,9 @@
 source_pages:
-  cron: '0 */10 * * *' # runs every minutes
+  cron: '0 */10 * * *' # At minute 0 past every 10th hour
   class: "SourcePagesCheckWorker"
   queue: default
 
 products:
-  cron: '0 */10 * * *' # runs every minutes
+  cron: '0 */10 * * *' # At minute 0 past every 10th hour
   class: "ProductsCheckWorker"
   queue: default
