@@ -1,0 +1,2 @@
+class SourcePageLog < ApplicationRecord
+end
