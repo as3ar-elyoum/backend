@@ -8,12 +8,13 @@ class Product < ApplicationRecord
   belongs_to :source
   belongs_to :source_page
   has_many :product_prices
+  has_many :logs, class_name: 'ProductLog'
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
   def check_price
-    product_prices.create(price: price) if price_was != price
+    product_prices.create(price:) if price_was != price
   end
 
   def enqueue_scraper_worker
