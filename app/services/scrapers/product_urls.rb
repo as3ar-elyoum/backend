@@ -18,7 +18,6 @@ module Scrapers
       Products::Create.call(@urls, @source, @source_page)
       scraped_at = Time.now
       @source_page.update(scraped_at:)
-      SourcePageWorker.perform_async(@source_page.id, @page_number + 1) if can_paginate?
     end
 
     def fetch_urls
@@ -40,10 +39,6 @@ module Scrapers
       @document = mechanize_agent.get(@url)
       @document.encoding = 'utf-8'
       @document
-    end
-
-    def can_paginate?
-      @source_page.paginated? && !@urls.empty? && @page_number <= 500
     end
   end
 end
