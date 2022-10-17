@@ -17,7 +17,7 @@ module Scrapers
       @urls = fetch_urls
       Products::Create.call(@urls, @source, @source_page)
       scraped_at = Time.now
-      @source_page.update(scraped_at: scraped_at)
+      @source_page.update(scraped_at:)
       SourcePageWorker.perform_async(@source_page.id, @page_number + 1) if can_paginate?
     end
 

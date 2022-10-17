@@ -14,7 +14,7 @@ module Scrapers
       name = fetch_product_title
       price = fetch_product_price
       image_url = fetch_product_image
-      product_details = { name: name, price: price, image_url: image_url }
+      product_details = { name:, price:, image_url: }
       Products::Update.call(@product.id, product_details)
     end
 
