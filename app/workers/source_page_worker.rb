@@ -8,7 +8,5 @@ class SourcePageWorker
     source_page = SourcePage.find(source_page_id)
     error_details = "#{e.message} => #{e.backtrace.first}"
     source_page.update(notes: error_details)
-
-    SourcePageWorker.perform_async(source_page.id, page_number + 1) if source_page.paginated? && page_number <= 500
   end
 end
