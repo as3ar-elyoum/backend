@@ -13,7 +13,11 @@ class SourcesController < ApplicationController
 
   def create
     @source = Source.new(source_params)
-    redirect_to root_path if @source.save
+    if @source.save
+      redirect_to root_path, notice: 'Source was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit; end

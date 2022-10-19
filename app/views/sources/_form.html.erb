@@ -2,11 +2,17 @@
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <% @source.errors.full_messages_for(:name).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :url %><br>
     <%= form.text_field :url %>
+    <% @source.errors.full_messages_for(:url).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div>
@@ -17,6 +23,9 @@
   <div>
     <%= form.label :url_prefix %><br>
     <%= form.text_field :url_prefix %>
+    <% @source.errors.full_messages_for(:url_prefix).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+    <% end %>
   </div>
 
   <div>
