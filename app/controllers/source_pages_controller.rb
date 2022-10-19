@@ -18,7 +18,7 @@ class SourcePagesController < ApplicationController
 
   def create
     @source_page = @source.source_pages.create(source_page_params)
-    redirect_to source_path(@source)
+    redirect_to source_source_pages_path
   end
 
   def destroy
