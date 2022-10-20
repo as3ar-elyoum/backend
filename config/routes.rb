@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :sources do
     resources :source_pages
   end
-  resources :products
+
+  resources :products do
+    member do
+      post :scrap
+    end
+  end
   resources :categories, except: %i[show]
 
   defaults format: :json do
