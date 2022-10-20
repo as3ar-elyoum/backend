@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   resources :sources do
     resources :source_pages
   end
-  
+
   resources :products do
-      collection do
-          post :enqueueScraper
+    member do
+      post :scrap
     end
   end
   resources :categories, except: %i[show]

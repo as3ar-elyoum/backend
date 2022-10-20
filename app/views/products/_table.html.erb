@@ -24,7 +24,7 @@
       <td><%= link_to "source page url", product.source_page.url %></td>
       <td><%= product.updated_at %></td>
        <td>
-         <%= button_to 'Refresh', enqueueScraper_products_path(product), class: 'btn btn-outline-danger btn-sm', method: :post %>
+         <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-danger btn-sm', method: :post %>
       </td>
     </tr>
   <% end %>
