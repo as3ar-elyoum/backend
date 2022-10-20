@@ -1,4 +1,4 @@
-<table class="table table-bordered" style="margin: 20px;">
+<table class="table table-bordered">
   <thead>
   <tr>
     <th scope="col">#</th>
@@ -20,9 +20,12 @@
       <td><%= source_page.active %></td>
       <td><%= source_page.paginated %></td>
       <td>
-        <%= link_to 'Edit', edit_source_source_page_path(@source, source_page),
-                    class: 'btn btn-outline-success btn-sm' %>
-        <%= button_to 'Destroy', source_source_page_path(@source, source_page), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <div class="btn-group">
+            <a href=<%= edit_source_source_page_path(@source, source_page) %> style="text-decoration:none; margin: 1px 10px 1px 10px;">
+              <input class="btn btn-outline-success btn-sm" type="button" value="Edit">
+            </a>
+            <%= button_to 'Delete', source_source_page_path(@source, source_page), class: 'btn btn-outline-danger btn-sm', method: :delete %>
+        </div>
       </td>
     </tr>
   <% end %>

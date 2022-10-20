@@ -13,21 +13,29 @@ class SourcePagesController < ApplicationController
   def edit; end
 
   def update
-    @source_page.update(source_page_params)
+    if @source_page.update(source_page_params)
+      redirect_to source_source_pages_path, notice: 'Source page was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def create
     @source_page = @source.source_pages.create(source_page_params)
-    redirect_to source_source_pages_path
+    if @source_page.save
+      redirect_to edit_source_source_page_path(@source, @source_page)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @source_page.destroy
-    redirect_to source_source_pages_path
+    if @source_page.destroy
+      redirect_to source_source_pages_path, alert: 'Deleted source page'
+    end
   end
 
   private
-
   def source_page_params
     params.require(:source_page).permit(:name, :url, :active, :paginated, :category_id)
   end

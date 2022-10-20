@@ -2,10 +2,16 @@
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
+    <% @source_page.errors.full_messages_for(:name).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+    <% end %>
   </p>
   <p>
     <%= form.label :url %><br>
     <%= form.text_area :url %>
+    <% @source_page.errors.full_messages_for(:url).each do |message| %>
+        <div class="text-danger"><%= message %></div>
+    <% end %>
   </p>
 
    <p>
