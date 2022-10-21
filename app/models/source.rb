@@ -12,4 +12,8 @@ class Source < ApplicationRecord
   def parsed_selectors
     JSON.parse(selectors)
   end
+
+  def enqueue_scraper
+    source_pages.active.map(&:enqueue_scraper)
+  end
 end

@@ -18,8 +18,11 @@
       <td><%= source.url_prefix %></td>
       <td><%= source.active %></td>
       <td>
-        <%= link_to "Add Source Page", new_source_source_page_path(source), class: 'btn btn-outline-success btn-sm' %>
-        <%= link_to "Show Source Pages", source_source_pages_path(source), class: 'btn btn-outline-dark btn-sm' %>
+        <div class="btn-group">
+          <%= link_to "Add Source Page", new_source_source_page_path(source), class: 'btn btn-outline-success btn-sm', style: "margin: 1px 10px 1px 10px;" %>
+          <%= link_to "Show Source Pages", source_source_pages_path(source), class: 'btn btn-outline-dark btn-sm',style: "margin: 1px 1px 1px 1px;" %>
+          <%= button_to 'Scrap Source', scrap_source_path(source), class: 'btn btn-outline-primary btn-sm',style: "margin: 1px 10px 1px 10px;", method: :post%>
+        </div>
       </td>
     </tr>
   <% end %>

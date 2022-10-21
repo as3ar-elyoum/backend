@@ -1,5 +1,5 @@
 class SourcesController < ApplicationController
-  before_action :set_source, only: %i[show edit update]
+  before_action :set_source, only: %i[show edit update scrap]
 
   def index
     @sources = Source.all
@@ -24,6 +24,10 @@ class SourcesController < ApplicationController
 
   def update
     redirect_to root_path if @source.update(source_params)
+  end
+
+  def scrap
+    @source.enqueue_scraper
   end
 
   private
