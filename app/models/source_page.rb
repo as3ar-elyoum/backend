@@ -13,9 +13,7 @@ class SourcePage < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
-  def parsed_selectors
-    JSON.parse(source.selectors)
-  end
+  delegate :parsed_selectors, to: :source
 
   def enqueue_scraper
     return SourcePageWorker.perform_async(id) unless paginated?
