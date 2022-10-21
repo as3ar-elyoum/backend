@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   root 'sources#index'
   resources :sources do
+    member do 
+      post :scrap
+    end
     resources :source_pages do
      member do
       post :scrap
