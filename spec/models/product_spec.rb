@@ -7,6 +7,6 @@ RSpec.describe Product, type: :model do
   context '#relations' do
     it { is_expected.to belong_to :source }
     it { is_expected.to belong_to :source_page }
-    it { is_expected.to have_many :product_prices }
+    it { is_expected.to have_many :prices }
   end
 end

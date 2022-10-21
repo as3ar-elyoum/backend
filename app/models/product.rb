@@ -14,7 +14,7 @@ class Product < ApplicationRecord
   scope :inactive, -> { where(active: false) }
 
   def check_price
-    product_prices.create(price:) if price_was != price
+    prices.create(price:) if price_was != price
   end
 
   def enqueue_scraper_worker

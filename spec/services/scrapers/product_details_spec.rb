@@ -10,7 +10,7 @@ RSpec.describe Scrapers::ProductDetails do
       expect(updated_product.price).not_to be_nil
       expect(updated_product.name).not_to be_nil
       expect(updated_product.image_url).not_to be_nil
-      expect(updated_product.product_prices.empty?).to be_falsey
+      expect(updated_product.prices.empty?).to be_falsey
     end
   end
 
@@ -25,7 +25,7 @@ RSpec.describe Scrapers::ProductDetails do
       expect(updated_product.price).not_to be_nil
       expect(updated_product.name).not_to be_nil
       expect(updated_product.image_url).not_to be_nil
-      expect(updated_product.product_prices.empty?).to be_falsey
+      expect(updated_product.prices.empty?).to be_falsey
     end
   end
 
@@ -42,7 +42,7 @@ RSpec.describe Scrapers::ProductDetails do
       expect(updated_product.price).not_to be_nil
       expect(updated_product.name).not_to be_nil
       expect(updated_product.image_url).not_to be_nil
-      expect(updated_product.product_prices.empty?).to be_falsey
+      expect(updated_product.prices.empty?).to be_falsey
     end
   end
 
@@ -57,7 +57,7 @@ RSpec.describe Scrapers::ProductDetails do
       expect(updated_product.price).not_to be_nil
       expect(updated_product.name).not_to be_nil
       expect(updated_product.image_url).not_to be_nil
-      expect(updated_product.product_prices.empty?).to be_falsey
+      expect(updated_product.prices.empty?).to be_falsey
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe Scrapers::ProductDetails do
       expect(updated_product.price).not_to be_nil
       expect(updated_product.name).not_to be_nil
       expect(updated_product.image_url).not_to be_nil
-      expect(updated_product.product_prices.empty?).to be_falsey
+      expect(updated_product.prices.empty?).to be_falsey
     end
   end
 end
