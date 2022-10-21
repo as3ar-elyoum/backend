@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   root 'sources#index'
   resources :sources do
-    resources :source_pages
+    resources :source_pages do
+     member do
+      post :scrap
+    end
+  end
   end
 
   resources :products do
