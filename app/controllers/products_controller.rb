@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    render json: { prices: @product.prices.order(id: :desc) }
+    # render json: { prices: @product.prices.order(id: :desc) }
   end
 
   def scrap

@@ -4,14 +4,14 @@ Rails.application.routes.draw do
 
   root 'sources#index'
   resources :sources do
-    member do 
+    member do
       post :scrap
     end
     resources :source_pages do
-     member do
-      post :scrap
+      member do
+        post :scrap
+      end
     end
-  end
   end
 
   resources :products do
