@@ -24,7 +24,8 @@
       <td><%= link_to "source page url", product.source_page.url %></td>
       <td><%= product.updated_at %></td>
        <td>
-         <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-danger btn-sm', method: :post %>
+         <%= link_to 'Show', product_path(product), class: 'btn btn-outline-primary btn-sm', style: "margin: 1px 10px 1px 10px;" %>
+         <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-success btn-sm', style: "margin: 1px 10px 1px 10px;", method: :post %>
       </td>
     </tr>
   <% end %>

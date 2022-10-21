@@ -5,11 +5,13 @@ class ProductsController < ApplicationController
     @products = Product.includes(:source, :source_page).order(updated_at: :desc).first(100)
   end
 
+  def show
+    render json: { prices: @product.prices.order(id: :desc) }
+  end
+
   def scrap
     @product.enqueue_scraper_worker
   end
-
-  def show; end
 
   def set_product
     @product = Product.find(params[:id])
