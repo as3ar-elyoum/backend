@@ -1,6 +1,6 @@
 class SourcePagesController < ApplicationController
   before_action :set_source, only: %i[index new create edit update destroy]
-  before_action :set_source_page, only: %i[edit update destroy]
+  before_action :set_source_page, only: %i[edit update destroy scrap]
 
   def index
     @source_pages = @source.source_pages.all
@@ -33,6 +33,10 @@ class SourcePagesController < ApplicationController
     if @source_page.destroy
       redirect_to source_source_pages_path, alert: 'Deleted source page'
     end
+  end
+
+  def scrap
+    @source_page.enqueue_scraper
   end
 
   private
