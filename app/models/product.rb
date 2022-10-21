@@ -7,7 +7,7 @@ class Product < ApplicationRecord
 
   belongs_to :source
   belongs_to :source_page
-  has_many :product_prices
+  has_many :prices, class_name: 'ProductPrice'
   has_many :logs, class_name: 'ProductLog'
 
   scope :active, -> { where(active: true) }
