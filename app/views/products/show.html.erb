@@ -1,4 +1,6 @@
 <%= @product.name %>
+<%= link_to @product.url, @product.url %>
+
 <ul hidden id="prices-data">
 <% @product.prices.order(id: :asc).pluck(:created_at, :price).each do |item| %>
     <li> <%= item[0] %>, <%= item[1].to_f %> </li>
