@@ -1,7 +1,7 @@
 <%= @product.name %>
 <ul hidden id="prices-data">
 <% @product.prices.order(id: :asc).pluck(:created_at, :price).each do |item| %>
-    <li> <%= item[0]. %>, <%= item[1].to_f %> </li>
+    <li> <%= item[0] %>, <%= item[1].to_f %> </li>
 <% end %>
 </ul>
 <canvas id="myChart" width="400" height="400"></canvas>
