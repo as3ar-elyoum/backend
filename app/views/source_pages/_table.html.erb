@@ -24,9 +24,8 @@
             <a href=<%= edit_source_source_page_path(@source, source_page) %> style="text-decoration:none; margin: 1px 10px 1px 10px;">
               <input class="btn btn-outline-success btn-sm" type="button" value="Edit">
             </a>
-             <%= button_to 'Scrap', scrap_source_source_page_path(@source,source_page), class: 'btn btn-outline-danger btn-sm', method: :post  %>
-
-            <%= button_to 'Delete', source_source_page_path(@source, source_page), class: 'btn btn-outline-danger btn-sm', method: :delete %>
+            <%= button_to 'Scrap', scrap_source_source_page_path(@source,source_page), class: 'btn btn-outline-primary btn-sm', method: :post  %>
+            <%= button_to 'Delete', source_source_page_path(@source, source_page), class: 'btn btn-outline-danger btn-sm', style: "margin: 1px 10px 1px 10px;" ,method: :delete %>
         </div>
       </td>
     </tr>
