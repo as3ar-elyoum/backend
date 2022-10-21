@@ -30,9 +30,7 @@ class SourcePagesController < ApplicationController
   end
 
   def destroy
-    if @source_page.destroy
-      redirect_to source_source_pages_path, alert: 'Deleted source page'
-    end
+    redirect_to source_source_pages_path, alert: 'Deleted source page' if @source_page.destroy
   end
 
   def scrap
@@ -40,6 +38,7 @@ class SourcePagesController < ApplicationController
   end
 
   private
+
   def source_page_params
     params.require(:source_page).permit(:name, :url, :active, :paginated, :category_id)
   end

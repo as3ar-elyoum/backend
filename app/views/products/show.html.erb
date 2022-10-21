@@ -1,0 +1,48 @@
+<%= @product.name %>
+<ul hidden id="prices-data">
+<% @product.prices.order(id: :asc).pluck(:created_at, :price).each do |item| %>
+    <li> <%= item[0]. %>, <%= item[1].to_f %> </li>
+<% end %>
+</ul>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+
+console.log("Drawing Chart")
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const data_items = document.getElementById("prices-data").children
+console.log(data_items);
+let dates = []
+let prices = []
+
+Array.from(data_items).forEach(element => {
+    splited = element.innerHTML.split(",")
+    dates.push(splited[0])
+    prices.push(splited[1])
+});
+
+
+const data = {
+labels: dates,
+  datasets: [{
+    label: 'Price over time',
+    data: prices,
+    fill: true,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>

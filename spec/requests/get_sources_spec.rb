@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Posts', type: :request do
   let!(:sources) { create_list(:source, 20) }
 
