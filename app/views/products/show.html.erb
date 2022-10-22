@@ -2,6 +2,8 @@
 <%= button_to 'Refresh', scrap_product_path(@product), class: 'btn btn-outline-success btn-sm', style: "margin: 1px 10px 1px 10px;", method: :post %>
 <br>
 <%= link_to @product.url, @product.url %>
+<br>
+<td><%= image_tag(@product.image_url, size: "400x400") unless @product.image_url.nil? %></td>
 
 <ul hidden id="prices-data">
 <% @product.prices.order(id: :asc).pluck(:created_at, :price).each do |item| %>
