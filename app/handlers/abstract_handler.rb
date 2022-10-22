@@ -6,7 +6,7 @@ module Handlers
 
     def self.execute(event)
       handler_instance = new(event)
-      handler_instance.execute(event.payload)
+      handler_instance.execute(event)
     end
 
     def self.handles?(event)

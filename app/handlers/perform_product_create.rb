@@ -1,9 +1,9 @@
 module Handlers
-  class PerformProductCreate < Handlers::AbstractHandler
+  class PerformProductCreate < AbstractHandler
     handles Events::ProductUrlsFetched
 
-    def execute(payload)
-      puts payload
+    def execute(event)
+      Products::Create.call(event.products_urls, event.source_page_id)
     end
   end
 end
