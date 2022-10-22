@@ -7,6 +7,7 @@
     <th scope="col">Scraped at</th>
     <th scope="col">Active</th>
     <th scope="col">Paginated</th>
+    <th scope="col">Products Count</th>
     <th scope="col">Actions</th>
   </tr>
   </thead>
@@ -19,6 +20,7 @@
       <td><%= source_page.scraped_at %></td>
       <td><%= source_page.active %></td>
       <td><%= source_page.paginated %></td>
+      <td><%= source_page.products.count %></td>
       <td>
         <div class="btn-group">
             <a href=<%= edit_source_source_page_path(@source, source_page) %> style="text-decoration:none; margin: 1px 10px 1px 10px;">
