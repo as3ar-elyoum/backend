@@ -15,11 +15,8 @@ module Scrapers
     def perform
       @document = fetch_document
       @urls = fetch_urls
-      DomainEvent::Publisher.publish(
-        Events::ProductUrlsFetched.new(source_page_id: @source_page.id, products_urls: @urls)
-      )
-      scraped_at = Time.now
-      @source_page.update(scraped_at:)
+      event = Events::ProductUrlsFetched.new(source_page_id: @source_page.id, products_urls: @urls)
+      DomainEvent::Publisher.publish(event)
       @urls
     end
 
