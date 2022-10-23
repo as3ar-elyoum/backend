@@ -6,6 +6,8 @@ services:
     env_file:
       - environment.env
     restart: always
+    ports:
+      - "5433:5432"
     healthcheck:
       test: "exit 0"
     volumes:
