@@ -19,7 +19,11 @@ Rails.application.routes.draw do
       post :scrap
     end
   end
-  resources :categories, except: %i[show]
+  defaults format: :json do
+    namespace :api do
+      resources :categories
+    end
+  end
 
   defaults format: :json do
     namespace :api do
