@@ -1,5 +1,5 @@
 module Handlers
-  class UpdateSourcePageScrapTime < AbstractHandler
+  class UpdateSourcePageScrapeTime < AbstractHandler
     handles Events::ProductUrlsFetched
 
     def execute(event)
