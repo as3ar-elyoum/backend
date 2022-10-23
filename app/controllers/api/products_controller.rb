@@ -12,8 +12,8 @@ module Api
     end
 
     def show
-      # product data in an object
-      # in the product object => last month prices
+      @product = Product.find(params[:id])
+      @prices = @product.prices.order('created_at DESC').pluck(:created_at,:price)
     end
   end
 end
