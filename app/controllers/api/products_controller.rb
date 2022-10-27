@@ -1,7 +1,7 @@
 module Api
   class ProductsController < ApplicationController
-    before_action :set_product, only: [:show, :similar]
-    
+    before_action :set_product, only: %i[show similar]
+
     def index
       products_query = Product.active.includes(:source, :source_page).order('Random()')
       if params[:category_id]
@@ -21,13 +21,15 @@ module Api
     end
 
     def similar
-      similar_products = Product.active.includes(:source, :source_page).order('Random()')
-      @products = similar_products.limit(10)
+      @products = Product.active.includes(:source, :source_page)
+                         .where.not(id: @product.id).search(@product.name)
+                         .records.limit(5)
     end
-  
+
     private
+
     def set_product
       @product = Product.find(params[:id])
     end
-  end  
+  end
 end
