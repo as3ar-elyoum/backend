@@ -55,7 +55,7 @@ services:
 
   sidekiq:
     image: priceindex-backend
-    command: 'bundle exec sidekiq -e $RAILS_ENV'
+    command: 'bundle exec sidekiq'
     volumes:
       - .:/app
     depends_on:
