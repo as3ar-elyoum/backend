@@ -16,8 +16,28 @@ services:
   redis:
     image: redis:6.0
     restart: always
+  
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    # ulimits:
+    #   memlock:
+    #     soft: -1
+    #     hard: -1
+    #   nofile:
+    #     soft: 65536
+    #     hard: 65536
+    # cap_add:
+    #   - IPC_LOCK
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
 
-  backend: 
+  backend:
     image: priceindex-backend
     build: .
     entrypoint: /app/entrypoint.sh
@@ -28,11 +48,12 @@ services:
     depends_on:
       - db
       - redis
+      - elasticsearch
     env_file:
       - environment.env
     restart: always
-  
-  sidekiq: 
+
+  sidekiq:
     image: priceindex-backend
     command: 'bundle exec sidekiq -e $RAILS_ENV'
     volumes:
@@ -47,4 +68,5 @@ services:
 
 volumes:
   postgres:
+  elasticsearch:
   bundle_path:
