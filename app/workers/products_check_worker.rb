@@ -3,7 +3,7 @@ class ProductsCheckWorker
   sidekiq_options queue: :default, retry: 2
   MAX_PRODCUTS_COUNT = 200
   def perform
-    Product.active.order(updated_at: :asc)
+    Product.order(updated_at: :asc)
            .first(MAX_PRODCUTS_COUNT).each(&:enqueue_scraper_worker)
   end
 end
