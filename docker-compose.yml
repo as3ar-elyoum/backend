@@ -16,8 +16,19 @@ services:
   redis:
     image: redis:6.0
     restart: always
-
-  backend: 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+    volumes:
+      - .:/app
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+  backend:
     image: priceindex-backend
     build: .
     entrypoint: /app/entrypoint.sh
@@ -31,8 +42,8 @@ services:
     env_file:
       - environment.env
     restart: always
-  
-  sidekiq: 
+
+  sidekiq:
     image: priceindex-backend
     command: 'bundle exec sidekiq -e $RAILS_ENV'
     volumes:
