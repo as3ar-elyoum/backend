@@ -34,3 +34,4 @@ environment.env
 /config/master.key
 .byebug_history
 coverage
+/docker_data
