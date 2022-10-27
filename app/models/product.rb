@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  include Searchable
+  # include Searchable
 
   attribute :active, default: false
   validates :url, presence: true, uniqueness: true
