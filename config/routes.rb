@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 
   defaults format: :json do
     namespace :api do
-      resources :products
+      resources :products do 
+        member do 
+          get :similar
+        end
+      end
     end
   end
 end
