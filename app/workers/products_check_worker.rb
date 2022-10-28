@@ -4,7 +4,6 @@ class ProductsCheckWorker
   MAX_PRODCUTS_COUNT = 150
   LATENCY_LIMIT = 60 * 5
   def perform
-    byebug
     return if exceeds_latency_limit?
 
     products = Product.order(updated_at: :asc).limit(MAX_PRODCUTS_COUNT)
