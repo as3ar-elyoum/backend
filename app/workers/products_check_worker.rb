@@ -5,7 +5,7 @@ class ProductsCheckWorker
   def perform
     products = Product.order(updated_at: :asc).limit(MAX_PRODCUTS_COUNT)
 
-    products.update_all(created_at: Time.now)
+    products.update_all(updated_at: Time.now)
     products.each(&:enqueue_scraper_worker)
   end
 end
