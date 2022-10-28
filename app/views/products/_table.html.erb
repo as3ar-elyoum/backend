@@ -3,6 +3,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
+    <th scope="col">Description</th>
     <th scope="col">Url</th>
     <th scope="col">Image URL</th>
     <th scope="col">Price</th>
@@ -19,6 +20,7 @@
     <tr>
       <th><%= product.id %></th>
       <td><%= product.name %></td>
+      <td><%= product.description %></td>
       <td><%= link_to "product link", product.url %></td>
       <td><%= image_tag(product.image_url, size: "40x40") unless product.image_url.nil? %></td>
       <td><%= product.price.to_f %></td>

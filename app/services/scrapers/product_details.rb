@@ -14,7 +14,8 @@ module Scrapers
       name = fetch_product_title
       price = fetch_product_price
       image_url = fetch_product_image
-      product_details = { name:, price:, image_url: }
+      description = fetch_product_description
+      product_details = { name:, price:, image_url:, description: }
       Products::Update.call(@product.id, product_details)
     end
 
@@ -32,7 +33,7 @@ module Scrapers
     end
 
     def fetch_product_description
-      @document.search('#accordion').text.strip
+      @document.search(@selectors['description']).text.strip
     end
 
     def fetch_document
