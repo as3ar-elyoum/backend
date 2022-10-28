@@ -1,7 +1,7 @@
 class ProductsCheckWorker
   include Sidekiq::Worker
   sidekiq_options queue: :default, retry: 2
-  MAX_PRODCUTS_COUNT = 150
+  MAX_PRODCUTS_COUNT = 300
   LATENCY_LIMIT = 60 * 5
   def perform
     return if exceeds_latency_limit?
