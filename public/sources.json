@@ -103,5 +103,27 @@
                 "active": true
             }
         ]
+    },
+    {
+        "name": "2B Egypt",
+        "url": "https://2b.com.eg/",
+        "url_prefix": "",
+        "active": true,
+        "selectors": "{\"product_urls\": \"a.product-item-link\", \"title\": \"span.base\", \"price\": \"span.price\", \"image\": \".fotorama__stage__shaft img.fotorama__img\" }",
+        "pages": [
+            {
+                "name": "موبايلات",
+                "url": "https://2b.com.eg/ar/mobile-and-tablet/mobiles.html",
+                "active": true
+            },{
+                "name": "لابتوبات",
+                "url": "https://2b.com.eg/ar/computers/laptops.html",
+                "active": true
+            },{
+                "name": "تلفزيونات",
+                "url": "https://2b.com.eg/ar/home-appliances/tvs.html",
+                "active": true
+            }
+        ]
     }
 ]
