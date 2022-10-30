@@ -5,6 +5,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
+    <th scope="col">Icon</th>
     <th scope="col">Source Page Count</th>
     <th scope="col">Actions</th>
   </tr>
@@ -14,6 +15,7 @@
     <tr>
       <th><%= category.id %></th>
       <td><%= category.name %></td>
+      <td><%= url_for(category.icon) %></td>
       <td><%= category.source_pages.count %></td>
       <td>
         <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-success' %>
