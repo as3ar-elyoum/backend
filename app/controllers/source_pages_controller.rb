@@ -40,7 +40,7 @@ class SourcePagesController < ApplicationController
   private
 
   def source_page_params
-    params.require(:source_page).permit(:name, :url, :active, :paginated, :category_id)
+    params.require(:source_page).permit(:name, :url, :active, :paginated, :category_id, :max_page_numbers)
   end
 
   def set_source
