@@ -4,6 +4,7 @@
     <th scope="col">#</th>
     <th scope="col">Name</th>
     <th scope="col">Url</th>
+    <th scope="col">Source</th>
     <th scope="col">Scraped at</th>
     <th scope="col">Active</th>
     <th scope="col">Paginated</th>
@@ -17,6 +18,7 @@
         <th><%= source_page.id %></th>
         <td><%= source_page.name %></td>
         <td><%= link_to 'Source Page URL', source_page.url %></td>
+        <td><%= source_page.source.name %></td>
         <td><%= source_page.scraped_at %></td>
         <td><%= source_page.active %></td>
         <td><%= source_page.paginated %></td>
