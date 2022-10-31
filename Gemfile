@@ -28,7 +28,6 @@ gem 'jbuilder'
 
 gem 'activestorage-cloudinary-service'
 gem 'cloudinary'
-# gem 'newrelic_rpm'
 
 #elasticSearch
 gem 'elasticsearch-model'
