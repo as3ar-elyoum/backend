@@ -2,7 +2,7 @@ require 'active_support'
 require 'active_support/core_ext'
 
 class DomainEvent
-  HANDLERS = [Handlers::PerformProductCreate]
+  HANDLERS = [Handlers::PerformProductCreate, Handlers::UpdateSourcePageScrapeTime]
 
   class Publisher
     def self.publish(event)
