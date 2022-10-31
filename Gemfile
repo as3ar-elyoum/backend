@@ -25,11 +25,10 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
-
 gem 'activestorage-cloudinary-service'
 gem 'cloudinary'
 
-#elasticSearch
+# elasticSearch
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
@@ -49,7 +48,7 @@ gem 'bootsnap', require: false
 
 gem 'mechanize'
 
-gem 'sidekiq'
+gem 'sidekiq', '~> 6.5.7'
 gem 'sidekiq-cron'
 gem 'sidekiq-limit_fetch'
 
