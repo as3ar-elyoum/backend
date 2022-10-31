@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_094454) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_31_120034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_094454) do
     t.bigint "category_id"
     t.datetime "scraped_at"
     t.boolean "paginated", default: false
+    t.integer "max_page_numbers", default: 0
     t.index ["category_id"], name: "index_source_pages_on_category_id"
     t.index ["source_id"], name: "index_source_pages_on_source_id"
   end

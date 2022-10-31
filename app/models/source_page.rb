@@ -18,7 +18,7 @@ class SourcePage < ApplicationRecord
   def enqueue_scraper
     return SourcePageWorker.perform_async(id) unless paginated?
 
-    (0..500).to_a.shuffle.map do |number|
+    (0..max_page_numbers).to_a.shuffle.map do |number|
       SourcePageWorker.perform_async(id, number)
     end
   end

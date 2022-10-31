@@ -18,7 +18,8 @@
       <td> <img width='40' height='40' src=<%= cloudinary_url(category.icon_path) %>> </td>
       <td><%= category.source_pages.count %></td>
       <td>
-        <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-success' %>
+        <%= link_to 'Edit', edit_category_path(category), class: 'btn btn-outline-success btn-sm' %>
+        <%= link_to 'Show', category_path(category), class: 'btn btn-outline-dark btn-sm' %>
       </td>
     </tr>
   <% end %>
