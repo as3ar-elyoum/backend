@@ -1,9 +1,11 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: %i[edit update]
+  before_action :find_category, only: %i[show edit update]
 
   def index
     @categories = Category.all
   end
+
+  def show; end
 
   def new
     @category = Category.new
