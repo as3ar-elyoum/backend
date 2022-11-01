@@ -18,6 +18,8 @@
       <div class="col"><%= form.select :category_id, Category.all.pluck(:name,:id), {prompt:'Category'},{class: "form-control"}%> </div>
   </p>
 
+   <%= form.label :active %>
+   <%= form.check_box :active %>
   <p>
     <%= form.label :paginated %>
     <%= form.check_box :paginated %>
@@ -27,7 +29,7 @@
     <%= form.label :max_page_numbers %>
     <%= form.text_field :max_page_numbers %>
   </p>
- 
+
   <p>
     <button type="submit" class="btn btn-success" style="margin-top: 20px;">Submit</button>
   </p>
