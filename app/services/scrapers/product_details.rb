@@ -10,29 +10,29 @@ module Scrapers
     end
 
     def perform
-      @document = fetch_document
-      name = fetch_product_title
-      price = fetch_product_price
-      image_url = fetch_product_image
-      description = fetch_product_description
+      fetch_document
+      name = fetch_title
+      price = fetch_price
+      image_url = fetch_image
+      description = fetch_description
       product_details = { name:, price:, image_url:, description: }
       Products::Update.call(@product.id, product_details)
     end
 
-    def fetch_product_title
+    def fetch_title
       @document.search(@selectors['title']).first.text.strip
     end
 
-    def fetch_product_price
+    def fetch_price
       @document.search(@selectors['price']).first.text.delete('^0-9.').to_f
     end
 
-    def fetch_product_image
+    def fetch_image
       @document.search(@selectors['image']).map(&:values).flatten
                .select { |url| url.match? URL_REGEXP }.first
     end
 
-    def fetch_product_description
+    def fetch_description
       @document.search(@selectors['description']).text.strip
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_120034) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_174328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,8 +76,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_120034) do
     t.bigint "source_page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unique_identifier"
+    t.integer "status"
     t.index ["source_id"], name: "index_products_on_source_id"
     t.index ["source_page_id"], name: "index_products_on_source_page_id"
+    t.index ["status"], name: "index_products_on_status"
+    t.index ["unique_identifier"], name: "index_products_on_unique_identifier", unique: true
     t.index ["url"], name: "index_products_on_url", unique: true
   end
 
