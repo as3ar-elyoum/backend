@@ -51,7 +51,7 @@
         "url": "https://amazon.eg",
         "url_prefix": "https://amazon.eg",
         "active": true,
-        "selectors": "{\"product_urls\": \".a-link-normal.s-no-outline\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }",
+        "selectors": "{\"product_urls\": \".a-link-normal.s-no-outline\",\"canonical_url\": \"####\", \"title\": \"#productTitle\", \"price\": \"#corePriceDisplay_desktop_feature_div .a-price-whole\", \"image\": \"#imgTagWrapperId img\" }",
         "pages": [
             {
                 "name": "smartphones",

@@ -21,7 +21,12 @@ module Scrapers
     end
 
     def fetch_urls
-      urls = @document.search @selectors['product_urls']
+      if @source.canonical_url == false
+          selectors =@selectors['product_urls']
+      else
+        selectors =@selectors['canonical_url']
+      end
+      urls = @document.search selectors
       urls = urls.map(&:values).flatten.uniq
       urls = urls.map { |url| @url_prefix + url }
       urls = urls.select { |url| url.match? URL_REGEXP }
