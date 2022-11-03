@@ -6,7 +6,7 @@ module Searchable
     include Elasticsearch::Model::Callbacks
 
     def as_indexed_json(_options = {})
-      as_json(only: %i[name])
+      as_json(only: %i[name source_id])
     end
 
     settings settings_attributes do
@@ -15,7 +15,9 @@ module Searchable
       end
     end
 
-    def self.search(query)
+    def self.search(product)
+      query = product.name
+
       set_filters = lambda do |context_type, filter|
         @search_definition[:query][:bool][context_type] |= [filter]
       end
@@ -26,12 +28,14 @@ module Searchable
           bool: {
             must: [],
             should: [],
-            filter: []
+            filter: [],
+            must_not: []
           }
         }
       }
 
       set_filters.call(:must, match: { name: { query:, fuzziness: 1 } })
+      set_filters.call(:must_not, [{ terms: { source_id: [product.source_id] } }])
 
       __elasticsearch__.search(@search_definition)
     end
