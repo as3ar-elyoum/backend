@@ -21,7 +21,9 @@ module Api
     end
 
     def similar
-      @products = Product.active.includes(:source, :source_page).search(@product.name).records.where.not(id: @product.id).limit(5)
+      @products = Product.active.includes(:source, :source_page)
+                         .search(@product)
+                         .records
     end
 
     private
