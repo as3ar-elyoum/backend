@@ -6,7 +6,7 @@ class ProductsCheckWorker
   def perform
     return if exceeds_latency_limit?
 
-    products = Product.order(updated_at: :asc).limit(MAX_PRODCUTS_COUNT)
+    products = Product.enabled.order(updated_at: :asc).limit(MAX_PRODCUTS_COUNT)
     products.update_all(updated_at: Time.now)
     products.each(&:enqueue_scraper_worker)
   end
