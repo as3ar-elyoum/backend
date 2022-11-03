@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: %i[show edit update]
+  before_action :find_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all
@@ -20,6 +20,11 @@ class CategoriesController < ApplicationController
 
   def update
     redirect_to categories_path if @category.update(category_params)
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path
   end
 
   private
