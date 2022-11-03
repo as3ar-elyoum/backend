@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   include Searchable
 
-  attribute :active, default: false
   validates :url, :unique_identifier, presence: true, uniqueness: true
 
   before_update :check_price
@@ -12,11 +11,10 @@ class Product < ApplicationRecord
 
   belongs_to :source
   belongs_to :source_page
-  has_many :prices, class_name: 'ProductPrice'
+  has_many :prices, class_name: 'ProductPrice', dependent: :destroy
   has_many :logs, class_name: 'ProductLog'
 
-  scope :active, -> { where(active: true) }
-  scope :inactive, -> { where(active: false) }
+  scope :enabled, -> { where.not(status: [statuses[:disabled], statuses[:duplicate]]) }
 
   def set_identifier
     self.unique_identifier ||= url[%r{dp/[a-zA-Z0-9]+}] || url
