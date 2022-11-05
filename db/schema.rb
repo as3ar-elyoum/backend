@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_121921) do
 
   create_table "devices", force: :cascade do |t|
     t.string "device_id"
-    t.string "token", null: false
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,26 +1,17 @@
 module Api
   class DevicesController < ApplicationController
     protect_from_forgery with: :null_session
-    
-    def index
-      @devices = Device.all
-    end
 
     def new
       @device = Device.new
     end
 
     def create
-      @device = Device.find_or_create_by(device_params)
+      @device = Device.find_or_create_by(:device_id => params[:device_id])
+      @device.token = params[:token]
       if @device.save
-        redirect_to root_path, notice: "Device was successfully created."
-      else
-        render json: @device.errors, status: :unprocessable_entity
+        render json: @device
       end
-    end
-
-    def device_params
-      params.require(:device).permit(:device_id, :token)
     end
   end
 end

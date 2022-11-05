@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  require "sidekiq/web"
+  mount Sidekiq::Web => "/sidekiq"
 
-  root 'sources#index'
+  root "sources#index"
   resources :sources do
     member do
       post :scrap
@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :devices
 
   defaults format: :json do
     namespace :api do
