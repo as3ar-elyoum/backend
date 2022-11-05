@@ -49,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_121921) do
   end
 
   create_table "devices", force: :cascade do |t|
-    t.integer "device_id"
-    t.string "token"
+    t.string "device_id"
+    t.string "user_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
