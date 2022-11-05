@@ -1,2 +1,2 @@
 json.device_id device.device_id
-json.token device.token
+json.user_token device.user_token
