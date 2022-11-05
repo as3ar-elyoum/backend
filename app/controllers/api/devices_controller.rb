@@ -5,7 +5,11 @@ module Api
     def create
       @device = Device.find_or_create_by(device_id: params[:device_id])
       @device.fcm_token = params[:fcm_token]
-      head :no_content if @device.save
+      if @device.save
+        render json: @device
+      else
+        render json: @device.errors, status: :unprocessable_entity
+      end
     end
   end
 end
