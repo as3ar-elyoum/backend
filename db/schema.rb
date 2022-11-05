@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_03_152749) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_05_121921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_152749) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.integer "device_id"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -115,6 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_152749) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "selectors"
+    t.boolean "canonical_url", default: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

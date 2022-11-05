@@ -28,11 +28,17 @@ Rails.application.routes.draw do
 
   defaults format: :json do
     namespace :api do
-      resources :products do 
-        member do 
+      resources :products do
+        member do
           get :similar
         end
       end
+    end
+  end
+
+  defaults format: :json do
+    namespace :api do
+      resources :devices
     end
   end
 end
