@@ -1,0 +1,16 @@
+<table class="table table-bordered" style="margin: 20px;">
+    <thead>
+        <tr>
+            <th scope="col">Device ID</th>
+            <th scope="col">Token</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @devices.each do |device| %>
+            <tr>
+                <td><%= device.device_id %></td>
+                <td><%= device.token %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
