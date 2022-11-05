@@ -2,14 +2,14 @@
     <thead>
         <tr>
             <th scope="col">Device ID</th>
-            <th scope="col">Token</th>
+            <th scope="col">FCM Token</th>
         </tr>
     </thead>
     <tbody>
         <% @devices.each do |device| %>
             <tr>
                 <td><%= device.device_id %></td>
-                <td><%= device.token %></td>
+                <td><%= device.fcm_token %></td>
             </tr>
         <% end %>
     </tbody>
