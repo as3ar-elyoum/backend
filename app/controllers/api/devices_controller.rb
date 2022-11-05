@@ -1,7 +1,6 @@
 module Api
   class DevicesController < ApplicationController
     protect_from_forgery with: :null_session
-    
     def index
       @devices = Device.all
     end
@@ -18,7 +17,7 @@ module Api
     end
 
     def device_params
-      params.require(:device).permit(:device_id, :user_token)
+      params.require(:device).permit(:device_id, :token)
     end
   end
 end
