@@ -35,7 +35,7 @@ module Searchable
       }
 
       set_filters.call(:must, match: { name: { query:, fuzziness: 1 } })
-      set_filters.call(:must_not, [{ terms: { source_id: [product.source_id] } }])
+      # set_filters.call(:must_not, [{ terms: { source_id: [product.source_id] } }])
 
       __elasticsearch__.search(@search_definition)
     end
