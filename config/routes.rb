@@ -43,4 +43,10 @@ Rails.application.routes.draw do
       resources :devices
     end
   end
+
+  defaults format: :json do
+    namespace :api do
+      resources :search
+    end
+  end
 end

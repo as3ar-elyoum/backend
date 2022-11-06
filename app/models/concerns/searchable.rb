@@ -15,9 +15,7 @@ module Searchable
       end
     end
 
-    def self.search(product)
-      query = product.name
-
+    def self.search(query)
       set_filters = lambda do |context_type, filter|
         @search_definition[:query][:bool][context_type] |= [filter]
       end
