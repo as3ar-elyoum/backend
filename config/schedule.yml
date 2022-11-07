@@ -9,6 +9,6 @@ products:
   queue: default
 
 delete_logs:
-  crone: '* * * * * *'
-  class: "LogsCheckWorker"
+  crone: '0 0 * * *'
+  class: "DeleteLogsWorker"
   queue: default

@@ -22,8 +22,4 @@ class SourcePage < ApplicationRecord
       SourcePageWorker.perform_async(id, number)
     end
   end
-
-  def delete_product_logs
-    DeleteLogsWorker.perform_async(product_id, id)
-  end
 end
