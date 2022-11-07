@@ -21,9 +21,8 @@ module Api
     end
 
     def similar
-      @products = Product.active.includes(:source, :source_page)
-                         .search(@product)
-                         .records
+      @products = Products::Search.perform({ term: @product.name })
+                                  .where.not(id: @product.id)
     end
 
     private
