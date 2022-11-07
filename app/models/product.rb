@@ -27,4 +27,8 @@ class Product < ApplicationRecord
   def enqueue_scraper_worker
     ProductDetailsWorker.perform_async(id)
   end
+
+  def delete_product_logs
+    DeleteLogsWorker.perform_async(id, source_page_id)
+  end
 end

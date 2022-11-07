@@ -2,8 +2,10 @@ queues:
   - default
   - source_page_scraper
   - product_details_scraper
+  - delete_logs
 
 :limits:
   default: 2
   source_page_scraper: 2
   product_details_scraper: 4
+
