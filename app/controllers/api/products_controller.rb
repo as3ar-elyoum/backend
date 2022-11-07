@@ -22,6 +22,7 @@ module Api
 
     def similar
       @products = Products::Search.perform({ term: @product.name })
+                                  .where.not(id: @product.id)
     end
 
     private
