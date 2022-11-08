@@ -4,6 +4,7 @@ class Source < ApplicationRecord
 
   has_many :source_pages, dependent: :destroy
   has_many :products
+  has_one :source_config
 
   validates :name, presence: true
   validates :url, presence: true, uniqueness: true, format: { with: URL_REGEXP }
