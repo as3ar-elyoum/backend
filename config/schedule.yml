@@ -7,3 +7,8 @@ products:
   cron: '*/1 * * * *' # At minute 0 past every 1 hour
   class: "ProductsCheckWorker"
   queue: default
+
+delete_logs:
+  crone: '0 0 * * *'
+  class: "DeleteLogsWorker"
+  queue: default
