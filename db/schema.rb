@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_221557) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_08_134605) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +89,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_221557) do
     t.index ["status"], name: "index_products_on_status"
     t.index ["unique_identifier"], name: "index_products_on_unique_identifier", unique: true
     t.index ["url"], name: "index_products_on_url", unique: true
+  end
+
+  create_table "source_config_tables", force: :cascade do |t|
+    t.string "price_selector"
+    t.string "name_selector"
+    t.string "image_selector"
+    t.string "description_selector"
+    t.string "product_urls_selector"
+    t.bigint "source_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["source_id"], name: "index_source_config_tables_on_source_id"
   end
 
   create_table "source_page_logs", force: :cascade do |t|
