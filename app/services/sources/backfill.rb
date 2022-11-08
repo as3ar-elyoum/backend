@@ -10,7 +10,6 @@ module Sources
                     image_url_selector: selectors['image'],
                     products_url_selector: selectors['product_urls']
                 )
-                byebug
                 config.update(source_id: source.id)
                 config.save
             end
