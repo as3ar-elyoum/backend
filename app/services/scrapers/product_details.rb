@@ -5,7 +5,7 @@ module Scrapers
     def initialize(product_id)
       @product = Product.find product_id
       @source_page = @product.source_page
-      @source_config = SourceCofig.find @source_page.source.id
+      @source_config = @source_page.source_config
       @url = @product.url
     end
 

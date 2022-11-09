@@ -5,11 +5,11 @@ module Scrapers
     def initialize(source_page_id, page_number)
       @page_number = page_number
       @source_page = SourcePage.find source_page_id
-      @source = @source_page.source
-      @url_prefix = @source.url_prefix.to_s
+      source = @source_page.source
+      @url_prefix = source.url_prefix.to_s
       @url = @source_page.url
       @url = @url.gsub('page_number', @page_number.to_s) if @source_page.paginated?
-      @source_config = SourceConfig.find @source.id
+      @source_config = source.source_config
     end
 
     def perform
