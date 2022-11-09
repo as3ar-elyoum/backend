@@ -21,7 +21,7 @@ module Scrapers
     end
 
     def fetch_urls
-      urls = @document.search @selectors.products_url_selector
+      urls = @document.search @source_config.products_url_selector
       urls = urls.map(&:values).flatten.uniq
       urls = urls.map { |url| @url_prefix + url }
       urls = urls.select { |url| url.match? URL_REGEXP }
