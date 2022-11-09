@@ -9,7 +9,7 @@ module Scrapers
       @url_prefix = @source.url_prefix.to_s
       @url = @source_page.url
       @url = @url.gsub('page_number', @page_number.to_s) if @source_page.paginated?
-      @selectors = @source_page.parsed_selectors
+      @selectors = SourceCofig.find @source.id
     end
 
     def perform
@@ -21,7 +21,7 @@ module Scrapers
     end
 
     def fetch_urls
-      urls = @document.search @selectors['product_urls']
+      urls = @document.search @selectors.products_url_selector
       urls = urls.map(&:values).flatten.uniq
       urls = urls.map { |url| @url_prefix + url }
       urls = urls.select { |url| url.match? URL_REGEXP }
