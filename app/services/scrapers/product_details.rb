@@ -5,7 +5,7 @@ module Scrapers
     def initialize(product_id)
       @product = Product.find product_id
       @source_page = @product.source_page
-      @selectors = SourceCofig.find @source_page.source.id
+      @source_config = SourceCofig.find @source_page.source.id
       @url = @product.url
     end
 
@@ -20,20 +20,20 @@ module Scrapers
     end
 
     def fetch_title
-      @document.search(@selectors.name_selector).first.text.strip
+      @document.search(@source_config.name_selector).first.text.strip
     end
 
     def fetch_price
-      @document.search(@selectors.price_selector).first.text.delete('^0-9.').to_f
+      @document.search(@source_config.price_selector).first.text.delete('^0-9.').to_f
     end
 
     def fetch_image
-      @document.search(@selectors.image_url_selector).map(&:values).flatten
+      @document.search(@source_config.image_url_selector).map(&:values).flatten
                .select { |url| url.match? URL_REGEXP }.first
     end
 
     def fetch_description
-      @document.search(@selectors.description_selector).text.strip
+      @document.search(@source_config.description_selector).text.strip
     end
 
     def fetch_document

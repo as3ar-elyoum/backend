@@ -9,7 +9,7 @@ module Scrapers
       @url_prefix = @source.url_prefix.to_s
       @url = @source_page.url
       @url = @url.gsub('page_number', @page_number.to_s) if @source_page.paginated?
-      @selectors = SourceCofig.find @source.id
+      @source_config = SourceConfig.find @source.id
     end
 
     def perform
