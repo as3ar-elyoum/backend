@@ -1,38 +1,68 @@
 <%= form_with model: @source do |form| %>
   <div>
     <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% @source.errors.full_messages_for(:name).each do |message| %>
-        <div class="text-danger"><%= message %></div>
-    <% end %>
+      <%= form.text_field :name %>
+        <% @source.errors.full_messages_for(:name).each do |message| %>
+          <div class="text-danger">
+            <%= message %>
+          </div>
+          <% end %>
   </div>
 
   <div>
     <%= form.label :url %><br>
-    <%= form.text_field :url %>
-    <% @source.errors.full_messages_for(:url).each do |message| %>
-        <div class="text-danger"><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :selectors %><br>
-    <%= form.text_field :selectors %>
+      <%= form.text_field :url %>
+        <% @source.errors.full_messages_for(:url).each do |message| %>
+          <div class="text-danger">
+            <%= message %>
+          </div>
+          <% end %>
   </div>
 
   <div>
     <%= form.label :url_prefix %><br>
-    <%= form.text_field :url_prefix %>
-    <% @source.errors.full_messages_for(:url_prefix).each do |message| %>
-        <div class="text-danger"><%= message %></div>
-    <% end %>
+      <%= form.text_field :url_prefix %>
+        <% @source.errors.full_messages_for(:url_prefix).each do |message| %>
+          <div class="text-danger">
+            <%= message %>
+          </div>
+          <% end %>
   </div>
 
   <div>
     <%= form.label :active %><br>
-    <%= form.text_field :active %>
+      <%= form.text_field :active %>
   </div>
 
+  <div style="margin-top: 20px;">
+    <h3>Source Config</h3>
+  </div>
+
+
+  <div>
+    <%= form.fields_for :source_config do |source_config| %>
+      <div>
+        <%= source_config.label :name_selector %><br>
+        <%= source_config.text_field :name_selector %>
+      </div>
+      <div>
+        <%= source_config.label :price_selector %><br>
+        <%= source_config.text_field :price_selector %>
+      </div>
+      <div>
+        <%= source_config.label :description_selector %><br>
+        <%= source_config.text_field :description_selector %>
+      </div>
+      <div>
+        <%= source_config.label :image_url_selector %><br>
+        <%= source_config.text_field :image_url_selector %>
+      </div>
+      <div>
+        <%= source_config.label :products_url_selector %><br>
+        <%= source_config.text_field :products_url_selector %>
+      </div>
+      <% end %>
+  </div>
   <button type="submit" class="btn btn-success" style="margin-top: 20px;">Submit</button>
 
-<% end %>
+  <% end %>

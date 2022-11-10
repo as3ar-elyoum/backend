@@ -33,7 +33,7 @@ class SourcesController < ApplicationController
   private
 
   def source_params
-    params.require(:source).permit(:name, :url, :url_prefix, :selectors, :active)
+    params.require(:source).permit(:name, :url, :url_prefix, :active)
   end
 
   def set_source
