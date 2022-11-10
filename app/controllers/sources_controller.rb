@@ -9,6 +9,7 @@ class SourcesController < ApplicationController
 
   def new
     @source = Source.new
+    @source.build_source_config
   end
 
   def create
@@ -33,7 +34,8 @@ class SourcesController < ApplicationController
   private
 
   def source_params
-    params.require(:source).permit(:name, :url, :url_prefix, :active)
+    params.require(:source).permit(:name, :url, :url_prefix, :active,
+       source_config_attributes: %i[name_selector price_selector image_selector description_selector products_url_selector])
   end
 
   def set_source
