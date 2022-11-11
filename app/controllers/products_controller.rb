@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show scrap]
+  before_action :set_product, only: %i[show edit scrap]
 
   def index
-    @products = Product.includes(:source, :source_page).order(updated_at: :desc).first(100)
+    @products = ProductFacade.new(params).perform
   end
 
-  def show
-    # render json: { prices: @product.prices.order(id: :desc) }
-  end
+  def show; end
+
+  def edit; end
 
   def scrap
     @product.enqueue_scraper_worker
