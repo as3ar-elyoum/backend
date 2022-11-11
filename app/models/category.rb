@@ -4,6 +4,7 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   has_many :source_pages
+  has_many :products
 
   validates :icon, presence: true
 

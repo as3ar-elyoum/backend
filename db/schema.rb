@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_08_142207) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_170650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_142207) do
     t.datetime "updated_at", null: false
     t.string "unique_identifier"
     t.integer "status"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["source_id"], name: "index_products_on_source_id"
     t.index ["source_page_id"], name: "index_products_on_source_page_id"
     t.index ["status"], name: "index_products_on_status"

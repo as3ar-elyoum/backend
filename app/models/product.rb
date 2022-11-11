@@ -11,10 +11,13 @@ class Product < ApplicationRecord
 
   belongs_to :source
   belongs_to :source_page
+  belongs_to :category
   has_many :prices, class_name: 'ProductPrice', dependent: :destroy
   has_many :logs, class_name: 'ProductLog'
 
   scope :enabled, -> { where.not(status: [statuses[:disabled], statuses[:duplicate]]) }
+  scope :categorized, -> { where.not(category_id: nil) }
+  scope :uncategorized, -> { where(category_id: nil) }
 
   def set_identifier
     self.unique_identifier ||= url[%r{dp/[a-zA-Z0-9]+}] || url
