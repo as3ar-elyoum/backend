@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit scrap]
 
   def index
-    @products = Facade::Product.load(params)
+    @products = ProductFacade.new(params).perform
   end
 
   def show; end
