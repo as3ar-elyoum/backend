@@ -4,7 +4,7 @@ class ProductFacade
   end
 
   def perform
-    @product_query = Product.includes(:source, :source_page).order(updated_at: :desc)
+    @product_query = Product.includes(:source, :category).order(updated_at: :desc)
     apply_query_filter
     @product_query.limit(100)
   end

@@ -9,7 +9,7 @@
     <th scope="col">Price</th>
     <th scope="col">Price Records</th>
     <th scope="col">Source Name</th>
-    <th scope="col">Source Page</th>
+    <th scope="col">Category</th>
     <th scope="col">Created at</th>
     <th scope="col">Updated at</th>
     <th scope="col">Actions</th>
@@ -22,11 +22,11 @@
       <td><%= product.name %></td>
       <td><%= product.description %></td>
       <td><%= link_to "product link", product.url %></td>
-      <td><%= image_tag(product.image_url, size: "40x40") unless product.image_url.nil? %></td>
+      <td><%= image_tag(product.image_url, size: "50x50") unless product.image_url.nil? %></td>
       <td><%= product.price.to_f %></td>
       <td><%= product.prices.count %></td>
       <td><%= product.source.name %></td>
-      <td><%= link_to "source page url", product.source_page.url %></td>
+      <td><%= product.category.try(&:name) %></td>
       <td><%= product.created_at %></td>
       <td><%= product.updated_at %></td>
        <td>
