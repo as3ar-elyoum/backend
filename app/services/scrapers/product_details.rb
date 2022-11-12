@@ -16,7 +16,9 @@ module Scrapers
       image_url = fetch_image
       description = fetch_description
       product_details = { name:, price:, image_url:, description: }
-      Products::Update.call(@product.id, product_details)
+
+      event = Events::ProductDetailsFetched.new(product_id: @product.id, details: product_details)
+      DomainEvent::Publisher.publish(event)
     end
 
     def fetch_title

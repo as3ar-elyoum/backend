@@ -21,7 +21,7 @@ module Api
     end
 
     def similar
-      @products = Products::Similar.new({ product_id: @product.id }).perform
+      @products = Products::Similar.new(@product.id).perform
     end
 
     private

@@ -6,34 +6,13 @@ module Searchable
     include Elasticsearch::Model::Callbacks
 
     def as_indexed_json(_options = {})
-      as_json(only: %i[name source_id])
-    end
+      return {} unless indexable?
 
-    settings settings_attributes do
-      mappings dynamic: false do
-        indexes :name, type: :text, analyzer: :autocomplete
-      end
+      as_json(only: %i[name source_id])
     end
 
     def self.search(search_definition)
       __elasticsearch__.search(search_definition)
-    end
-  end
-
-  class_methods do
-    def settings_attributes
-      {
-        index: {
-          analysis: { analyzer: {
-            autocomplete: {
-              type: :custom, tokenizer: :standard, filter: %i[lowercase autocomplete]
-            },
-            filter: {
-              autocomplete: { type: :edge_ngram, min_gram: 2, max_gram: 25 }
-            }
-          } }
-        }
-      }
     end
   end
 end

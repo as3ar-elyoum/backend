@@ -30,4 +30,12 @@ class Product < ApplicationRecord
   def enqueue_scraper_worker
     ProductDetailsWorker.perform_async(id)
   end
+
+  def indexable?
+    active? && categorized?
+  end
+
+  def categorized?
+    !category_id.nil?
+  end
 end
