@@ -10,8 +10,8 @@ class Product < ApplicationRecord
   enum status: { inactive: 0, active: 1, disabled: 2, duplicate: 3 }, _default: :inactive
 
   belongs_to :source
-  belongs_to :source_page
-  belongs_to :category
+  belongs_to :source_page, required: false
+  belongs_to :category, required: false
   has_many :prices, class_name: 'ProductPrice', dependent: :destroy
   has_many :logs, class_name: 'ProductLog'
 
