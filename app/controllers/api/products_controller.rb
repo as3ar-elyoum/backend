@@ -14,7 +14,6 @@ module Api
     end
 
     def show
-      @prices = @product.prices.order('created_at DESC').pluck(:created_at, :price)
       @prices = @product.prices.order('created_at DESC').pluck(:created_at, :price).map do |item|
         [item.first.to_date, item.last]
       end
