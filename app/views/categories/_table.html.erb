@@ -16,7 +16,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @category.products.each do |product| %>
+  <% @category.products.limit(100).each do |product| %>
     <tr>
       <th><%= product.id %></th>
       <td><%= product.name %></td>
