@@ -3,14 +3,8 @@ module Api
     before_action :set_product, only: %i[show similar]
 
     def index
-      products_query = Product.active.includes(:source, :source_page).order('Random()')
-      if params[:category_id]
-        products_query = products_query
-                         .joins('INNER JOIN source_pages ON source_pages.id = products.source_page_id')
-                         .where('source_pages.category_id = ? ', params[:category_id])
-      end
-
-      @products = products_query.limit(50)
+      products_query = Product.active.includes(:source).order('Random()')
+      @products = products_query.where(category_id: params[:category_id]).limit(50)
     end
 
     def show
