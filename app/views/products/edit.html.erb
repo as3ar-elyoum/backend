@@ -1,0 +1,19 @@
+<ul class="list-group">
+    <li class="list-group-item">
+        <%= @product.source_id %>
+    </li>
+    <li class="list-group-item">
+        <%= @product.name %>
+    </li>
+    <li class="list-group-item">
+        <%= @product.description %>
+    </li>
+    <li class="list-group-item">
+        <%= @product.url %>
+    </li>
+    <li class="list-group-item">
+        <%= image_tag(@product.image_url, size: "300x300", class: "rounded mx-auto d-block" ) unless @product.image_url.nil? %>
+    </li>
+</ul><br>
+
+<%= render partial: "form" , product: @product %>
