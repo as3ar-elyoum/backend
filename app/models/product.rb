@@ -32,7 +32,7 @@ class Product < ApplicationRecord
   end
 
   def indexable?
-    active? && categorized?
+    active?
   end
 
   def categorized?

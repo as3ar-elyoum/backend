@@ -6,7 +6,7 @@ module Products
 
       similars = Products::Similar.new(product_id).perform
       grouped_by_category = similars.records.group(:category_id).count
-      the_common_category = grouped_by_category.invert.max&.last
+      the_common_category = grouped_by_category.invert.compact.max&.last
       product.category_id = the_common_category
       product.save
     end

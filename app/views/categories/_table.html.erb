@@ -16,7 +16,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @category.products.limit(100).each do |product| %>
+  <% @category.products.order("RANDOM()").limit(100).each do |product| %>
     <tr>
       <th><%= product.id %></th>
       <td><%= product.name %></td>
@@ -30,9 +30,11 @@
       <td><%= product.created_at %></td>
       <td><%= product.updated_at %></td>
        <td>
-        <%= link_to 'Edit' , edit_product_path(product), class: 'btn btn-outline-success btn-sm' %>
-        <%= link_to 'Show', product_path(product), class: 'btn btn-outline-primary btn-sm', style: "margin: 1px 10px 1px 10px;" %>
-        <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-success btn-sm', style: "margin: 1px 10px 1px 10px;", method: :post %>
+        <div class="btn-group">
+          <%= link_to 'Edit' , edit_product_path(product), class: 'btn btn-outline-success btn-sm' %>
+          <%= link_to 'Show', product_path(product), class: 'btn btn-outline-primary btn-sm', style: "margin: 1px 10px 1px 10px;" %>
+          <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-dark btn-sm', method: :post %>
+        </div>
       </td>
     </tr>
   <% end %>

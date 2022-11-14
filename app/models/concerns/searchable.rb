@@ -8,7 +8,7 @@ module Searchable
     def as_indexed_json(_options = {})
       return {} unless indexable?
 
-      as_json(only: %i[name source_id])
+      as_json(only: %i[name source_id category_id])
     end
 
     def self.search(search_definition)
