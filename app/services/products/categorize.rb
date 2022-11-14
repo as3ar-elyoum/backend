@@ -2,8 +2,10 @@ module Products
   class Categorize
     def self.perform(product_id)
       product = Product.find product_id
-      similar = Products::Similar.new(product_id).perform.first
-      product.category_id = similar.try(:category_id)
+      similars = Products::Similar.new(product_id).perform
+      grouped_by_category = similars.records.group(:category_id).count
+      the_common_category = grouped_by_category.max.first
+      product.category_id = the_common_category
       product.save
     end
   end
