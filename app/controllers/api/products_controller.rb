@@ -1,6 +1,6 @@
 module Api
   class ProductsController < ApplicationController
-    before_action :set_product, only: %i[show similar]
+    before_action :set_product, only: %i[show similar update]
 
     def index
       products_query = Product.active.includes(:source).order('Random()')
@@ -17,7 +17,15 @@ module Api
       @products = Products::Similar.new(@product.id).perform
     end
 
+    def update
+      return status 200 if @product.update(product_params)
+    end
+
     private
+
+    def product_params
+      params.require(:product).permit(:status, :category_id)
+    end
 
     def set_product
       @product = Product.find(params[:id])
