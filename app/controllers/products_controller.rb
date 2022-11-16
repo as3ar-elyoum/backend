@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def product_params
     params.require(:product).permit(:status, :category_id)
   end
@@ -27,5 +28,4 @@ class ProductsController < ApplicationController
   def fetch_product
     @product = Product.find(params[:id])
   end
-
 end

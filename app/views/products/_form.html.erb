@@ -2,10 +2,10 @@
     <div class="form-group">
       <div class="row">
         <div class="col">
-          <%= form.select :status, Product.statuses.map(&:first),{prompt:'select'},{class: "form-control" }%>
+          <%= form.select :status, Product.statuses.map(&:first), {prompt:'select'},{class: "form-control" }%>
         </div>
         <div class="col">
-          <%= form.select :category_id, Category.all.pluck(:name,:id),{prompt:'select'},{class: "form-control" }%>
+          <%= form.select :category_id, Category.all.pluck(:name,:id), {prompt:'select'},{class: "form-control" }%>
         </div>
       </div>
     </div><br>
