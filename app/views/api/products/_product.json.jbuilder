@@ -5,5 +5,7 @@ json.description product.description
 json.image_url product.image_url
 json.url product.url
 json.source product.source.name
+json.status product.status
+json.category_id product.category_id
 json.created_at product.created_at
 json.updated_at product.updated_at

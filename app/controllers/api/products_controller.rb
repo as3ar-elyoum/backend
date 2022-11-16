@@ -1,5 +1,6 @@
 module Api
   class ProductsController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_product, only: %i[show similar update]
 
     def index
@@ -18,7 +19,11 @@ module Api
     end
 
     def update
-      return status 200 if @product.update(product_params)
+      if @product.update(product_params)
+        render :show, status: :ok, location: @product
+      else
+        render json: @product.errors, status: :unprocessable_entity
+      end
     end
 
     private
