@@ -5,6 +5,7 @@
   <tr>
     <th scope="col">#</th>
     <th scope="col">Name</th>
+    <th scope="col">Keywords</th>
     <th scope="col">Icon</th>
     <th scope="col">Products Count</th>
     <th scope="col">Actions</th>
@@ -15,6 +16,7 @@
     <tr>
       <th><%= category.id %></th>
       <td><%= category.name %></td>
+      <td><%= category.keywords %></td>
       <td> <img width='40' height='40' src=<%= cloudinary_url(category.icon_path) %>> </td>
       <td><%= category.products.count %></td>
       <td>
