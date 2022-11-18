@@ -2,7 +2,7 @@ module Products
   class Search
     def initialize(query)
       @search_definition = {
-        size: 10,
+        size: 50,
         query: { bool: { must: [], should: [], filter: [], must_not: [] } }
       }
       @set_filters = lambda do |context_type, filter|
