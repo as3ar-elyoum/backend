@@ -4,7 +4,7 @@ class ProductFacade
   end
 
   def perform
-    @product_query = Product.active.includes(:source, :category).order('RANDOM()')
+    @product_query = Product.includes(:source, :category).order('RANDOM()')
     apply_query_filter
     @product_query.limit(100)
   end

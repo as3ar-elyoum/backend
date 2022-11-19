@@ -4,7 +4,7 @@ module Api
     before_action :set_product, only: %i[show similar update]
 
     def index
-      filter = { filter: { category_id: params[:category_id] } }
+      filter = { filter: { status: :active, category_id: params[:category_id] } }
       @products = ProductFacade.new(filter).perform
     end
 
