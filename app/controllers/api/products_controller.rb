@@ -4,8 +4,8 @@ module Api
     before_action :set_product, only: %i[show similar update]
 
     def index
-      products_query = Product.active.includes(:source).order('Random()')
-      @products = products_query.where(category_id: params[:category_id]).limit(50)
+      filter = { filter: { category_id: params[:category_id] } }
+      @products = ProductFacade.new(filter).perform
     end
 
     def show
