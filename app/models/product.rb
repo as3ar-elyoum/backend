@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   include Searchable
 
   validates :url, :unique_identifier, presence: true, uniqueness: true
+  validates :price, numericality: { greater_than: 0 }, on: :update
 
   before_update :check_price
   before_validation :set_identifier
