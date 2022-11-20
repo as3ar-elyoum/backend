@@ -26,7 +26,12 @@ module Scrapers
     end
 
     def fetch_price
-      @document.search(@source_config.price_selector).first.text.delete('^0-9.').to_f
+      selectors = @source_config.price_selector.split('|').map(&:strip)
+
+      selectors.each do |selector|
+        return @document.search(selector).first.text.delete('^0-9.').to_f
+      rescue StandardError => e
+      end
     end
 
     def fetch_image
