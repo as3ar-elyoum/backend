@@ -1,5 +1,5 @@
 module Handlers
-  class PerformProductCategorize < AbstractHandler
+  class DeactivateProduct < AbstractHandler
     handles Events::ProductPriceNotPresent
 
     def execute(event)
