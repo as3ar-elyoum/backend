@@ -32,6 +32,9 @@ module Scrapers
         return @document.search(selector).first.text.delete('^0-9.').to_f
       rescue StandardError => e
       end
+
+      event = Events::ProductPriceNotPresent.new(product_id: @product.id)
+      DomainEvent::Publisher.publish(event)
     end
 
     def fetch_image

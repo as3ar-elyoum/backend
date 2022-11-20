@@ -6,7 +6,8 @@ class DomainEvent
     Handlers::PerformProductCreate,
     Handlers::UpdateSourcePageScrapeTime,
     Handlers::PerformProductUpdate,
-    Handlers::PerformProductCategorize
+    Handlers::PerformProductCategorize,
+    Handlers::DeactivateProduct
   ]
 
   class Publisher
