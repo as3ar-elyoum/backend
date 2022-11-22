@@ -20,6 +20,7 @@ module Api
 
     def update
       if @product.update(product_params)
+        @product.check_similar_category
         render :show, status: :ok, location: @product
       else
         render json: @product.errors, status: :unprocessable_entity

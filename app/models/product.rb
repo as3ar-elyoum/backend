@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   before_update :check_price
   before_validation :set_identifier
   after_create :enqueue_scraper_worker
-  after_update :check_category
 
   enum status: { inactive: 0, active: 1, disabled: 2, duplicate: 3 }, _default: :inactive
 
@@ -41,7 +40,7 @@ class Product < ApplicationRecord
     !category_id.nil?
   end
 
-  def check_category
+  def check_similar_category
     similars = Products::Search.new(name).perform
     similars.update_all(category_id:)
   end
