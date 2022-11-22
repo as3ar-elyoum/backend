@@ -1,6 +1,7 @@
 module Products
   class Categorize
     def self.perform(product_id)
+      return
       product = Product.find product_id
 
       similars = Products::Similar.new(product_id).perform
