@@ -42,7 +42,7 @@ class Product < ApplicationRecord
   end
 
   def check_category
-    similars = Products::Search.new(product.name).perform
+    similars = Products::Search.new(name).perform
     similars.update_all(category_id:)
   end
 end
