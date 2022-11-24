@@ -2,6 +2,8 @@
     <thead>
         <tr>
             <th scope="col">Device ID</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Updated At</th>
             <th scope="col">FCM Token</th>
         </tr>
     </thead>
@@ -9,6 +11,8 @@
         <% @devices.each do |device| %>
             <tr>
                 <td><%= device.device_id %></td>
+                <td><%= device.created_at %></td>
+                <td><%= device.updated_at %></td>
                 <td><%= device.fcm_token %></td>
             </tr>
         <% end %>
