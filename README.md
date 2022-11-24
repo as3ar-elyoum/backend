@@ -17,20 +17,10 @@
 
 - up and run dependencies
 ```sh
-$ make services
-```
-
-- start rails server
-```sh
-$ make server
+$ make up
 ```
 
 - start rails console
 ```sh
 $ make console
-```
-
-- start sidekiq
-```sh
-$ make sidekiq
 ```
