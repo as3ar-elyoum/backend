@@ -1,0 +1,41 @@
+<table class="table table-bordered" style="margin: 20px;">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Url</th>
+    <th scope="col">Image URL</th>
+    <th scope="col">Price</th>
+    <th scope="col">Price Records</th>
+    <th scope="col">Source Name</th>
+    <th scope="col">Category</th>
+    <th scope="col">Created at</th>
+    <th scope="col">Updated at</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <th><%= product.id %></th>
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= link_to "product link", product.url %></td>
+      <td><%= image_tag(product.image_url, size: "50x50") unless product.image_url.nil? %></td>
+      <td><%= product.price.to_f %></td>
+      <td><%= product.prices.count %></td>
+      <td><%= product.source.name %></td>
+      <td><%= product.category.try(&:name) %></td>
+      <td><%= product.created_at %></td>
+      <td><%= product.updated_at %></td>
+       <td>
+        <div class="btn-group">
+          <%= link_to 'Edit' , edit_product_path(product), class: 'btn btn-outline-success btn-sm' %>
+          <%= link_to 'Show', product_path(product), class: 'btn btn-outline-primary btn-sm', style: "margin: 1px 10px 1px 10px;" %>
+          <%= button_to 'Refresh', scrap_product_path(product), class: 'btn btn-outline-dark btn-sm', method: :post %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
