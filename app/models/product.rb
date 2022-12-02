@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   before_update :check_price
   before_validation :set_identifier
   after_create :enqueue_scraper_worker
+  after_commit :update_score
 
   enum status: { inactive: 0, active: 1, disabled: 2, duplicate: 3 }, _default: :inactive
 
@@ -32,6 +33,10 @@ class Product < ApplicationRecord
 
   def enqueue_scraper_worker
     ProductDetailsWorker.perform_async(id)
+  end
+
+  def update_score
+    Products::Score.new(id).update_score
   end
 
   def indexable?
