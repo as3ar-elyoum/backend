@@ -7,7 +7,7 @@ module Products
     end
 
     def update_score
-      product.update(score: calculated_score)
+      product.update_columns(score: calculated_score)
     end
 
     private

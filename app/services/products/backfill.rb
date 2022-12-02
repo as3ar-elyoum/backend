@@ -1,12 +1,9 @@
 module Products
   class Backfill
     def self.perform
-      products = Product.order(id: :asc).find_each do |product|
-        product.price_updated_at = product.prices.last.created_at
-        product.prices_count = product.prices.count
-
-        product.save
-      rescue StandardError => e
+      products = Product.active.where(price_updated_at: nil).order(id: :asc).find_each do |product|
+        product.update_columns(price_updated_at: product.prices.last&.created_at,
+                               prices_count: product.prices.count)
       end
     end
   end
