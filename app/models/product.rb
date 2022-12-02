@@ -21,11 +21,13 @@ class Product < ApplicationRecord
   scope :uncategorized, -> { where(category_id: nil) }
 
   def set_identifier
+    return unless url
+
     self.unique_identifier ||= url[%r{dp/[a-zA-Z0-9]+}] || url
   end
 
   def check_price
-    prices.create(price:) if price_was != price
+    trigger_price_changed_event(price) if price_was != price
   end
 
   def enqueue_scraper_worker
@@ -43,5 +45,12 @@ class Product < ApplicationRecord
   def check_similar_category
     similars = Products::Search.new(name).perform
     similars.update_all(category_id:)
+  end
+
+  private
+
+  def trigger_price_changed_event(price)
+    event = Events::ProductPriceChanged.new(product_id: id, price:)
+    DomainEvent::Publisher.publish(event)
   end
 end

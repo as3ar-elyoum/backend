@@ -14,8 +14,8 @@ module Searchable
     end
 
     after_commit do
-      __elasticsearch__.index_document if indexable?
-      __elasticsearch__.delete_document if disabled?
+      # __elasticsearch__.index_document if indexable?
+      # __elasticsearch__.delete_document if disabled?
     end
 
     after_destroy do
