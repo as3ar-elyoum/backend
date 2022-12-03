@@ -18,6 +18,9 @@ bash:
 exec-db:
 	docker-compose exec db bash
 
+restart:
+	docker-compose restart
+	
 stop:
 	docker-compose stop
 
