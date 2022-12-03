@@ -36,7 +36,6 @@ class Product < ApplicationRecord
   end
 
   def update_score
-    byebug
     Products::Score.new(id).update_score
   end
 
