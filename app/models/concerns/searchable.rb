@@ -19,7 +19,7 @@ module Searchable
     end
 
     after_destroy do
-      __elasticsearch__.delete_document if disabled?
+      __elasticsearch__.delete_document
     end
   end
 end
