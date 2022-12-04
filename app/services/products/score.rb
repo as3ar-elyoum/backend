@@ -21,6 +21,8 @@ module Products
     end
 
     def price_update_at_score
+      return 0 unless product.price_updated_at
+
       1 - (Time.now - product.price_updated_at).seconds.in_days.to_i / 7
     end
   end

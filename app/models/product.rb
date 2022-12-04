@@ -36,6 +36,8 @@ class Product < ApplicationRecord
   end
 
   def update_score
+    return unless active?
+
     Products::Score.new(id).update_score
   end
 

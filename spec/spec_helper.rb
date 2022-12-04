@@ -22,5 +22,8 @@ RSpec.configure do |config|
 
     DatabaseCleaner.start
     DatabaseCleaner.clean
+
+    Product.any_instance.stub(:index_document)
+    Product.any_instance.stub(:delete_document)
   end
 end
