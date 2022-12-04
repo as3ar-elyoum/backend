@@ -4,8 +4,8 @@ class Product < ApplicationRecord
   validates :url, :unique_identifier, presence: true, uniqueness: true
   validates :price, numericality: { greater_than: 0 }, on: :update
 
-  before_update :check_price
   before_validation :set_identifier
+  before_update :check_price
   after_create :enqueue_scraper_worker
   after_commit :update_score
 
@@ -36,6 +36,8 @@ class Product < ApplicationRecord
   end
 
   def update_score
+    return unless active?
+
     Products::Score.new(id).update_score
   end
 

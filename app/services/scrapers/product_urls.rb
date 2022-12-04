@@ -36,9 +36,9 @@ module Scrapers
     def fetch_document
       mechanize_agent = Mechanize.new
       mechanize_agent.user_agent_alias = 'Linux Mozilla'
-      @document = mechanize_agent.get(@url)
-      @document.encoding = 'utf-8'
-      @document
+      document = mechanize_agent.get(@url)
+      document.encoding = 'utf-8'
+      document
     end
   end
 end
