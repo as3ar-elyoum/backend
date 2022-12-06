@@ -7,7 +7,7 @@ up:
 	docker-compose up -d
 
 logs:
-	docker-compose logs
+	docker-compose logs -f backend
 
 console:
 	docker-compose exec backend rails console
@@ -18,6 +18,9 @@ bash:
 exec-db:
 	docker-compose exec db bash
 
+restart:
+	docker-compose restart
+	
 stop:
 	docker-compose stop
 

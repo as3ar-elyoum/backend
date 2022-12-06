@@ -19,12 +19,20 @@ module Searchable
     end
 
     after_commit do
-      __elasticsearch__.index_document if indexable?
-      __elasticsearch__.delete_document if disabled?
+      index_document if indexable?
+      delete_document if disabled?
+    end
+
+    def index_document
+      __elasticsearch__.index_document
+    end
+
+    def delete_document
+      __elasticsearch__.delete_document
     end
 
     after_destroy do
-      __elasticsearch__.delete_document if disabled?
+      delete_document
     end
   end
 

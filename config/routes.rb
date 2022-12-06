@@ -2,10 +2,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'sources#index'
-  resources :devices
-  resources :categories
-  resources :search
+  root "pages#main"
   resources :sources do
     member do
       post :scrap
