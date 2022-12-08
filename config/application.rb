@@ -6,10 +6,13 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative '../app/middleware/custom_middleware'
+
 module As3arElyoumBackend
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.middleware.use CustomMiddleware
 
     # Configuration for the application, engines, and railties goes here.
     #
