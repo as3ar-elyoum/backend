@@ -4,10 +4,7 @@ class CustomMiddleware
   end
 
   def call(env)
-    status, headers, response = @app.call(env)
-    [status, headers, response]
-
-    device = Device.find_by(device_id: env['HTTP_DEVICEID'])
-    device.update(last_usage_time: Time.now)
+    DevicesRepo.new.update_usage_time(env['HTTP_DEVICEID'])
+    @app.call(env)
   end
 end
