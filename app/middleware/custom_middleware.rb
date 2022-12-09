@@ -4,12 +4,10 @@ class CustomMiddleware
   end
 
   def call(env)
-    @status, @headers, @response = @app.call(env)
+    status, headers, response = @app.call(env)
+    [status, headers, response]
 
-    Rails.logger.info '-----------'
-    Rails.logger.info env['HTTP_DEVICEID']
-    Rails.logger.info '-----------'
-
-    [@status, @headers, @response]
+    device = Device.find_by(device_id: env['HTTP_DEVICEID'])
+    device.update(last_usage_time: Time.now)
   end
 end
