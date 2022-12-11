@@ -3,7 +3,7 @@ module Handlers
     handles Events::ProductDetailsFetched
 
     def execute(event)
-      Products::Update.call(event.product_id, event.details)
+      ProductRepo.new(event.product_id).update(event.details)
     end
   end
 end
