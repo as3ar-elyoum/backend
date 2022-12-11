@@ -10,7 +10,7 @@
         <% @devices.each do |device| %>
             <tr>
                 <td><%= device.device_id %></td>
-                <td><%= device.last_usage_time %></td>
+                <td><%= device.time_ago %></td>
                 <td><%= device.fcm_token %></td>
             </tr>
         <% end %>
