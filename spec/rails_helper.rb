@@ -16,7 +16,9 @@ end
 if ENV['COVERAGE']
   require 'simplecov'
   SimpleCov.start('rails') do
+    add_group 'Repositories', 'app/repositories'
     add_group 'Services', 'app/services'
+    add_group 'Domain Events', 'app/domain_event'
   end
 end
 
