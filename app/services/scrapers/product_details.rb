@@ -17,8 +17,14 @@ module Scrapers
       description = fetch_description
       product_details = { name:, price:, image_url:, description: }
 
+      unless price
+        event = Events::ProductPriceNotPresent.new(product_id: @product.id)
+        DomainEvent::Publisher.publish(event)
+      end
+
       event = Events::ProductDetailsFetched.new(product_id: @product.id, details: product_details)
       DomainEvent::Publisher.publish(event)
+      price
     end
 
     def fetch_title
@@ -29,12 +35,10 @@ module Scrapers
       selectors = @source_config.price_selector.split('|').map(&:strip)
 
       selectors.each do |selector|
-        return @document.search(selector).first.text.delete('^0-9.').to_f
+        @document.search(selector).first.text.delete('^0-9.').to_f
       rescue StandardError => e
+        return nil
       end
-
-      event = Events::ProductPriceNotPresent.new(product_id: @product.id)
-      DomainEvent::Publisher.publish(event)
     end
 
     def fetch_image
