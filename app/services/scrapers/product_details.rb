@@ -35,7 +35,7 @@ module Scrapers
       selectors = @source_config.price_selector.split('|').map(&:strip)
 
       selectors.each do |selector|
-        @document.search(selector).first.text.delete('^0-9.').to_f
+        return @document.search(selector).first.text.delete('^0-9.').to_f
       rescue StandardError => e
         return nil
       end
