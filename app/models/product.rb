@@ -54,6 +54,10 @@ class Product < ApplicationRecord
     similars.update_all(category_id:)
   end
 
+  def categorized?
+    category_id.present?
+  end
+
   private
 
   def trigger_price_changed_event(price)

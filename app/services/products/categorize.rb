@@ -1,8 +1,9 @@
 module Products
   class Categorize
     def self.perform(product_id)
-      return
       product = Product.find product_id
+
+      return if product.categorized?
 
       similars = Products::Search.new(product.name).perform
       grouped_by_category = similars.records.group(:category_id).count
