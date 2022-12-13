@@ -5,4 +5,7 @@ RSpec.describe Category, type: :model do
   context '#relations' do
     it { is_expected.to have_many(:source_pages) }
   end
+  context "#icon_path" do
+    it { is_expected.to '' if :icon == nil }
+  end
 end
