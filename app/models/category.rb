@@ -11,6 +11,7 @@ class Category < ApplicationRecord
   def icon_path
     return '' if icon.nil?
 
+    byebug
     icon.attachment.try(:blob).try(:url)
   rescue StandardError => e
     ''
