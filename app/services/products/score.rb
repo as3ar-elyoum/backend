@@ -11,11 +11,20 @@ module Products
     end
 
     def calculated_score
-      prices_count_score + price_update_at_score
+      prices_count_score + price_update_at_score + price_change_score
     end
 
     def prices_count_score
       product.prices.count * 2
+    end
+
+    def price_change_score
+      prices = product.prices.order(id: :desc).limit(2).pluck(:price)
+      return 0 if prices.count < 2
+
+      change_percentag = ((prices.first - prices.last) / prices.last) * 100
+
+      change_percentag.abs.to_i
     end
 
     def price_update_at_score
