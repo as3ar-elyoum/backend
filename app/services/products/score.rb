@@ -19,12 +19,7 @@ module Products
     end
 
     def price_change_score
-      prices = product.prices.order(id: :desc).limit(2).pluck(:price)
-      return 0 if prices.count < 2
-
-      change_percentag = ((prices.first - prices.last) / prices.last) * 100
-
-      change_percentag.abs.to_i
+      product.prices.last&.change_percentage&.abs || 0
     end
 
     def price_update_at_score
