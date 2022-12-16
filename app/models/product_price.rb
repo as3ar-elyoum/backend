@@ -9,7 +9,7 @@ class ProductPrice < ApplicationRecord
   end
 
   def update_change_percentage
-    latest_price_record = product.prices.where.not(id:).order(id: :desc).first
+    latest_price_record = product.prices.where('id < ?', id).order(id: :desc).first
 
     return unless latest_price_record
 
