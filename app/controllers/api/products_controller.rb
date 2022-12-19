@@ -9,9 +9,13 @@ module Api
     end
 
     def show
-      @prices = @product.prices.order('created_at DESC').limit(10).pluck(:created_at, :price).map do |item|
-        [item.first.to_date, item.last]
-      end.reverse
+      prices =  [@product.prices.first] + @product.prices.order(change_percentage: :desc).limit(5) + [@product.prices.last]
+      prices = prices.uniq.pluck(:created_at, :price)
+      prices = prices.map do |item|
+        [item.first.to_date, item.second]
+      end
+
+      @prices = prices.sort
     end
 
     def similar
