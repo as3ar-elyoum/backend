@@ -22,7 +22,6 @@ services:
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
-      - ES_JAVA_OPTS=-"Xms400m -Xmx400m"
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
     ports:
