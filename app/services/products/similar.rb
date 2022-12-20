@@ -4,15 +4,15 @@ module Products
       @search_definition = {
         size: 10,
         sort: [{ score: { order: :desc } }, { _score: { order: :desc } }],
-        query: { bool: { must: [], should: [], filter: [], must_not: [] } }
+        query: { bool: { must: [], must_not: [] } }
       }
-      @set_filters = lambda do |context_type, filter|
+      set_filters = lambda do |context_type, filter|
         @search_definition[:query][:bool][context_type] |= [filter]
       end
-      @product = Product.find(product_id)
-      query = @product.name
-      @set_filters.call(:must, match: { name: { query:, fuzziness: 1 } })
-      @set_filters.call(:must_not, [{ terms: { _id: [@product.id] } }])
+      product = Product.find(product_id)
+      query = product.name
+      set_filters.call(:must, match: { name: { query: } })
+      set_filters.call(:must_not, { terms: { _id: [product.id] } })
     end
 
     def perform
