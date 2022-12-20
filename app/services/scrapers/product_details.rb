@@ -37,13 +37,14 @@ module Scrapers
     def fetch_price
       selectors = @source_config.price_selector.split('|').map(&:strip)
 
-      return nil unless selectors.present? 
+      return nil unless selectors.present?
 
       selectors.each do |selector|
         return @document.search(selector).first.text.delete('^0-9.').to_f
       rescue StandardError => e
-        return nil
       end
+
+      nil
     end
 
     def fetch_image

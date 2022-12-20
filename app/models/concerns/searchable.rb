@@ -3,7 +3,12 @@ module Searchable
 
   included do
     include Elasticsearch::Model
-    # include Elasticsearch::Model::Callbacks
+
+    settings settings_attributes do
+      mappings dynamic: false do
+        indexes :name, type: :text
+      end
+    end
 
     def as_indexed_json(_options = {})
       as_json(only: %i[name source_id])
@@ -28,6 +33,18 @@ module Searchable
 
     after_destroy do
       delete_document
+    end
+  end
+
+  class_methods do
+    def settings_attributes
+      { index: { analysis: {
+        analyzer: {
+          arabic_analyzer: {
+            type: :custom, tokenizer: :arabic, filter: %i[arabic_stop]
+          }
+        }
+      } } }
     end
   end
 end
