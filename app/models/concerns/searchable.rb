@@ -40,10 +40,9 @@ module Searchable
     def settings_attributes
       { index: { analysis: {
         analyzer: {
-          autocomplete: {
-            type: :custom, tokenizer: :standard, filter: %i[lowercase autocomplete]
-          },
-          filter: { autocomplete: { type: :edge_ngram, min_gram: 2, max_gram: 25 } }
+          arabic_analyzer: {
+            type: :custom, tokenizer: :arabic, filter: %i[arabic_stop]
+          }
         }
       } } }
     end
