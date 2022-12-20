@@ -45,13 +45,13 @@ class Product < ApplicationRecord
     active? && categorized?
   end
 
-  def categorized?
-    !category_id.nil?
-  end
-
   def check_similar_category
     similars = Products::Search.new(name).perform
     similars.update_all(category_id:)
+  end
+
+  def categorized?
+    category_id.present?
   end
 
   private

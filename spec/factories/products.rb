@@ -11,4 +11,8 @@ FactoryBot.define do
   trait :inactive do
     status { :inactive }
   end
+
+  trait :with_source do
+    source { create(:source) }
+  end
 end
