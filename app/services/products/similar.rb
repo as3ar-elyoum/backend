@@ -3,6 +3,7 @@ module Products
     def initialize(product_id)
       @search_definition = {
         size: 10,
+        sort: [{ score: { order: :desc } }, { _score: { order: :desc } }],
         query: { bool: { must: [], should: [], filter: [], must_not: [] } }
       }
       @set_filters = lambda do |context_type, filter|

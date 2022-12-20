@@ -7,11 +7,12 @@ module Searchable
     settings settings_attributes do
       mappings dynamic: false do
         indexes :name, type: :text
+        indexes :score, type: :float
       end
     end
 
     def as_indexed_json(_options = {})
-      as_json(only: %i[name source_id])
+      as_json(only: %i[name score])
     end
 
     def self.search(search_definition)
@@ -39,9 +40,31 @@ module Searchable
   class_methods do
     def settings_attributes
       { index: { analysis: {
+        "filter": {
+          "arabic_stop": {
+            "type": 'stop',
+            "stopwords": '_arabic_'
+          },
+          "arabic_keywords": {
+            "type": 'keyword_marker',
+            "keywords": ['مثال']
+          },
+          "arabic_stemmer": {
+            "type": 'stemmer',
+            "language": 'arabic'
+          }
+        },
         analyzer: {
-          arabic_analyzer: {
-            type: :custom, tokenizer: :arabic, filter: %i[arabic_stop]
+          "rebuilt_arabic": {
+            "tokenizer": 'standard',
+            "filter": %w[
+              lowercase
+              decimal_digit
+              arabic_stop
+              arabic_normalization
+              arabic_keywords
+              arabic_stemmer
+            ]
           }
         }
       } } }
