@@ -18,7 +18,7 @@ services:
     restart: always
   
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.1
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node
@@ -27,7 +27,16 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-
+  
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:8.3.1
+  #   ports:
+  #     - 5601:5601
+  #   environment:
+  #     - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+  #   depends_on:
+  #     - elasticsearch
+  
   backend:
     image: priceindex-backend
     build: .
