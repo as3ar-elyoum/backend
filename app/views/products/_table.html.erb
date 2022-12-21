@@ -8,6 +8,7 @@
     <th scope="col">Image URL</th>
     <th scope="col">Price</th>
     <th scope="col">Price Records</th>
+    <th scope="col">Score</th>
     <th scope="col">Source Name</th>
     <th scope="col">Category</th>
     <th scope="col">Created at</th>
@@ -25,6 +26,7 @@
       <td><%= image_tag(product.image_url, size: "50x50") unless product.image_url.nil? %></td>
       <td><%= product.price.to_f %></td>
       <td><%= product.prices.count %></td>
+      <td><%= product.score %></td>
       <td><%= product.source.name %></td>
       <td><%= product.category.try(&:name) %></td>
       <td><%= product.created_at %></td>
