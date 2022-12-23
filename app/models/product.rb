@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   include Searchable
+  AMAZON_REGEX = Regexp.new('dp/[a-zA-Z0-9]+')
+  CARREFOUR_REGEX = Regexp.new('p/[a-zA-Z0-9]+')
 
   validates :url, :unique_identifier, presence: true, uniqueness: true
   validates :price, numericality: { greater_than: 0 }, on: :update
@@ -24,7 +26,7 @@ class Product < ApplicationRecord
   def set_identifier
     return unless url
 
-    self.unique_identifier ||= url[%r{dp/[a-zA-Z0-9]+}] || url
+    self.unique_identifier ||= url[AMAZON_REGEX] || url[CARREFOUR_REGEX] || url
   end
 
   def check_price
