@@ -6,6 +6,11 @@ build:
 up:
 	docker-compose up -d
 
+
+deploy:
+	docker-compose up -d backend
+	docker-compose up -d sidekiq
+
 logs:
 	docker-compose logs -f backend
 
