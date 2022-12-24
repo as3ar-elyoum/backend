@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   before_validation :set_identifier
   before_update :check_price
   after_create :enqueue_scraper_worker
-  after_commit :update_score
+  after_update :update_score
 
   enum status: { inactive: 0, active: 1, disabled: 2, duplicate: 3 }, _default: :inactive
 
