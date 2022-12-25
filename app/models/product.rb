@@ -40,7 +40,7 @@ class Product < ApplicationRecord
   def update_score
     return unless active?
 
-    Products::Score.new(id).update_score
+    ProductScoreUpdater.perform_async(id)
   end
 
   def indexable?
