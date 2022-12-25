@@ -19,6 +19,7 @@ services:
   
   elasticsearch:
     image: elasticsearch:8.3.1
+    restart: on-failure
     environment:
       - xpack.security.enabled=false
       - discovery.type=single-node

@@ -23,13 +23,13 @@ module Products
     end
 
     def price_change_score
-      change_percentage = product.prices.last&.change_percentage&.abs || 0
+      change_percentage = product.prices.last&.change_percentage&.abs || 0.0
 
       change_percentage / (change_percentage + 1).to_f
     end
 
     def price_update_at_score
-      return 0 unless product.price_updated_at
+      return 0.0 unless product.price_updated_at
 
       1 / (Time.now - product.price_updated_at).seconds.in_days.to_f
     end
