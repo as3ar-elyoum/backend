@@ -8,4 +8,5 @@ queues:
   default: 2
   source_page_scraper: 2
   product_details_scraper: 4
+  product_score: 1
 
