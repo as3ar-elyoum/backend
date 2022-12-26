@@ -6,7 +6,7 @@ class ProductFacade
   def perform
     @product_query = Product.includes(:source, :category).order(score: :desc)
     apply_query_filter
-    @product_query.limit(20)
+    @product_query.limit(30)
   end
 
   def apply_query_filter
