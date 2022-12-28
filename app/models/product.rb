@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   belongs_to :category, required: false
   has_many :prices, class_name: 'ProductPrice', dependent: :destroy
   has_many :logs, class_name: 'ProductLog'
-
+  has_many :hits, class_name: 'ProductHit'
   scope :enabled, -> { where.not(status: [statuses[:disabled], statuses[:duplicate]]) }
   scope :categorized, -> { where.not(category_id: nil) }
   scope :uncategorized, -> { where(category_id: nil) }
@@ -40,7 +40,7 @@ class Product < ApplicationRecord
   def update_score
     return unless active?
 
-    ProductScoreUpdater.perform_in(60, id)
+    ProductScoreUpdater.perform_in(30, id)
   end
 
   def indexable?

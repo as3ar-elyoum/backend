@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_184150) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_232136) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_184150) do
     t.datetime "updated_at", null: false
     t.datetime "last_usage_time"
     t.index ["device_id"], name: "index_devices_on_device_id", unique: true
+  end
+
+  create_table "product_hits", force: :cascade do |t|
+    t.bigint "device_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_product_hits_on_device_id"
+    t.index ["product_id"], name: "index_product_hits_on_product_id"
   end
 
   create_table "product_logs", force: :cascade do |t|
