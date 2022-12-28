@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-
-  root 'pages#main'
+  root 'healthcheck#index'
   resources :devices
   resources :categories
 
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
       post :scrap
     end
   end
-
 
   defaults format: :json do
     namespace :api do
