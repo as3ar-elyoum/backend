@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Device ID</th>
             <th scope="col">Last Usage Time</th>
             <th scope="col">FCM Token</th>
@@ -11,6 +12,7 @@
         <% @devices.each_with_index do |device, index| %>
             <tr>
                 <td><%= index+1 %></td>
+                <td><%= device.id %></td>
                 <td><%= device.device_id %></td>
                 <td><%= device.time_ago %></td>
                 <td><%= device.fcm_token.first(20) %></td>

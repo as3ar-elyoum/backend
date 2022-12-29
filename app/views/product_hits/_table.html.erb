@@ -1,0 +1,21 @@
+<table class="table table-bordered" style="margin: 20px;">
+    <thead>
+        <tr>
+            <th scope="col">Device ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Image</th>
+            <th scope="col">Product URL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @hits.each_with_index do |hit, index| %>
+            <tr>
+                <td><%= hit.device_id %></td>
+                <td><%= hit.product.name.first(50) %></td>
+                <td><%= image_tag(hit.product.image_url, size: "50x50") unless hit.product.image_url.nil? %></td>
+                <td><%= link_to "product link", hit.product.url %></td>
+
+            </tr>
+        <% end %>
+    </tbody>
+</table>
