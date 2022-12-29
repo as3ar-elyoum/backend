@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'healthcheck#index'
   resources :devices
   resources :categories
+  resources :product_hits
 
   resources :sources do
     member do
