@@ -15,7 +15,7 @@ class CustomMiddleware
   private
 
   def enqueu_logging_worker
-    DeviceCreator.perform_in(30, @env['HTTP_DEVICEID'])
+    DeviceCreator.perform_async(@env['HTTP_DEVICEID']) unless @env['HTTP_DEVICEID'].nil?
 
     enqueue_product_hit_logger
   end

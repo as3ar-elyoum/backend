@@ -14,7 +14,6 @@
                 <td><%= hit.product.name.first(50) %></td>
                 <td><%= image_tag(hit.product.image_url, size: "50x50") unless hit.product.image_url.nil? %></td>
                 <td><%= link_to "product link", hit.product.url %></td>
-
             </tr>
         <% end %>
     </tbody>
