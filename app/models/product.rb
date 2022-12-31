@@ -40,7 +40,7 @@ class Product < ApplicationRecord
   def update_score
     return unless active?
 
-    ProductScoreUpdater.perform_in(30, id)
+    ProductScoreUpdater.perform_in(3, id)
   end
 
   def indexable?
