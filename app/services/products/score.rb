@@ -13,7 +13,7 @@ module Products
     def calculated_score
       total = (prices_count_score + price_update_at_score + price_change_score)
 
-      (total / (total + 1)).floor(3)
+      (total / (total + 1)).floor(7)
     end
 
     def prices_count_score
