@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
+      @product.check_similar_category
       redirect_to edit_product_path(@product), notice: 'Product was successfully updated.'
     end
   end
