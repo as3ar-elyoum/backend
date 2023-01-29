@@ -4,8 +4,7 @@ require 'action_view/helpers'
 class Device < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
-  validates :device_id, presence: true, uniqueness: true
-  validates :fcm_token, presence: true
+  validates :fcm_token, presence: true, uniqueness: true
 
   has_many :product_hits
 
