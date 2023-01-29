@@ -38,7 +38,7 @@ RSpec.describe Products::Score do
       expect(score_instance.price_update_at_score).to eq((1 / 3.to_f))
       expect(score_instance.price_change_score).to eq(10 / 11.0)
 
-      expect(score_instance.calculated_score).to eq(0.656)
+      expect(score_instance.calculated_score).to eq(0.65625)
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe Products::Score do
       expect(score_instance.prices_count_score).to eq(3 / 4.0)
       expect(score_instance.price_update_at_score).to eq((1 / 6.to_f))
       expect(score_instance.price_change_score).to eq(100 / 101.0)
-      expect(score_instance.calculated_score).to eq(0.655)
+      expect(score_instance.calculated_score).to eq(0.655975)
     end
   end
 end
