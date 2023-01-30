@@ -1,8 +1,8 @@
 class ProductHitRepo
   attr_reader :product, :device
 
-  def initialize(product_id, device_uid)
-    @device = Device.find_by(device_id: device_uid)
+  def initialize(product_id, token)
+    @device = Device.find_by(fcm_token: token)
     @product = Product.find product_id
   end
 
