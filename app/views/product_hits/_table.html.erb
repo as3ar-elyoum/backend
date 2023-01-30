@@ -13,7 +13,6 @@
         <% @hits.each_with_index do |hit, index| %>
             <tr>
                 <td><%= hit.id %></td>
-                <td><%= hit.fcm_token %></td>
                 <td><%= hit.product_id %></td>
                 <td><%= hit.product.name.first(50) %></td>
                 <td><%= image_tag(hit.product.image_url, size: "50x50") unless hit.product.image_url.nil? %></td>
