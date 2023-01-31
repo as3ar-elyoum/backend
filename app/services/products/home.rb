@@ -1,12 +1,20 @@
 module Products
   class Home
-   def initialize(category_id)
-      @category = Category.find category_id
-    end
-
     def perform
       filter = { filter: { status: :active, category_id: @category.id } }
       @products = ProductFacade.new(filter).perform
+
     end
-  end
+
+    def recommended
+      home = Category.all.map do |category|
+        @category =category
+        {
+        category: @category,
+        products: @products= perform
+        }
+      end
+    end
+
+end
 end
