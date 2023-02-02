@@ -20,7 +20,6 @@ module Api
 
     def home
       @home_data = Products::Home.new.perform
-      # render json: {data: @home_data}
     end
 
     def similar
