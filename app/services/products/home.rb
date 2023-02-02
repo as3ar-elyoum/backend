@@ -1,20 +1,19 @@
 module Products
   class Home
-    def filter_products
-      filter = { filter: { status: :active, category_id: @category.id } }
-      @products = ProductFacade.new(filter).perform
-
-    end
-
     def perform
-       Category.all.map do |category|
-        @category =category
+      Category.all.map do |category|
         {
-        category: @category,
-        products: @products= filter_products
+          category:,
+          products: filter_products(category)
         }
       end
     end
 
-end
+    private
+
+    def filter_products(category)
+      filter = { filter: { status: :active, category_id: category.id } }
+      ProductFacade.new(filter).perform
+    end
+  end
 end

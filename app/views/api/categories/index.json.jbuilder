@@ -1,3 +1,3 @@
 json.array! @categories do |category|
-  json.partial! 'categories', category: category
+  json.partial! 'category', category:
 end

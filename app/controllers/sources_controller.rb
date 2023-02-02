@@ -35,7 +35,7 @@ class SourcesController < ApplicationController
 
   def source_params
     params.require(:source).permit(:name, :url, :url_prefix, :active,
-       source_config_attributes: %i[name_selector price_selector image_url_selector description_selector products_url_selector])
+                                   source_config_attributes: %i[name_selector price_selector image_url_selector description_selector products_url_selector])
   end
 
   def set_source
