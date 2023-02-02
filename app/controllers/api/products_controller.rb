@@ -18,6 +18,10 @@ module Api
       @prices = prices.sort
     end
 
+    def home
+      @home_data = Products::Home.new.perform
+    end
+
     def similar
       @products = Products::Similar.new(@product.id).perform
     end
