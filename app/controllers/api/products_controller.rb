@@ -18,6 +18,11 @@ module Api
       @prices = prices.sort
     end
 
+    def home
+      data =Products::Home.new.perform
+      render json: {categorized_products: data}
+    end
+
     def similar
       @products = Products::Similar.new(@product.id).perform
     end

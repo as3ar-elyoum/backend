@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       resources :categories
       resources :search
       resources :products do
+        collection do
+          get :home
+        end
         member do
           get :similar
         end
