@@ -19,8 +19,7 @@ module Api
     end
 
     def home
-      data =Products::Home.new.perform
-      render json: {categorized_products: data}
+      @categorized_products = Products::Home.new.perform
     end
 
     def similar
