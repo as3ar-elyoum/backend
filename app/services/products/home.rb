@@ -1,7 +1,7 @@
 module Products
   class Home
     def perform
-      Category.all.map do |category|
+      Category.active.map do |category|
         {
           category:,
           products: filter_products(category)
