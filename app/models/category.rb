@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_one_attached :icon
+  attribute :active, default: true 
 
   validates :name, presence: true
 
