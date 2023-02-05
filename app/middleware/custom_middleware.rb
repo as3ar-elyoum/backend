@@ -24,7 +24,7 @@ class CustomMiddleware
     return unless show_product?
 
     product_id = @request_info[:id].to_i
-    ProductHitLogger.perform_async(product_id, @env['HTTP_FCM_TOKEN'])
+    ProductHitLogger.perform_in(1.minute, product_id, @env['HTTP_FCM_TOKEN'])
   end
 
   def show_product?
