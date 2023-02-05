@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.active.all
   end
 
   def show; end
