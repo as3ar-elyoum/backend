@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :keywords, :icon)
+    params.require(:category).permit(:name, :keywords, :icon, :active)
   end
 
   def find_category
