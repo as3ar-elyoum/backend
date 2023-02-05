@@ -1,10 +1,17 @@
 <%= form_with model: @category do |form| %>
    <div class="form-group">
     <div class="form-row">
-      <div class="col-6"> <%= form.text_field :name,  class: 'form-control', placeholder: 'Name' %> </div>
-      <div class="col-6"> <%= form.text_area :keywords,  class: 'form-control', placeholder: 'Keywords' %> </div>
-      <div class="col-2"> <%= form.file_field :icon %> </div>
-      <div class="col-2"> <%= form.submit class: 'btn btn-primary' %> </div>
+
+      <p class="col-1"> <%= form.text_field :name,  class: 'form-control', placeholder: 'Name' %></p>
+      <p> <%= form.text_area :keywords, class: 'form-control', placeholder: 'Keywords' %> </p>
+
+        <p>
+          <%= form.label :active %>
+          <%= form.check_box :active %>
+        </p>
+
+      <p class="col-3"> <%= form.file_field :icon %> </div>
+      <p class="col-4"> <%= form.submit class: 'btn btn-primary' %> </div>
     </div>
   </div>
 <% end %>
