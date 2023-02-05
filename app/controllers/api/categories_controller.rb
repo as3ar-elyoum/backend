@@ -1,7 +1,7 @@
 module Api
   class CategoriesController < ApplicationController
     def index
-      @categories = Category.all
+      @categories = Category.active.all
     end
   end
 end
