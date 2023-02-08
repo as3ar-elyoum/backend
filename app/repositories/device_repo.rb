@@ -1,5 +1,6 @@
 class DeviceRepo
   def update_usage_time(token)
-    Device.where(fcm_token: token).update(last_usage_time: Time.now)
+    @device = Device.find_or_create_by(fcm_token: token)
+    @device.update(last_usage_time: Time.now)
   end
 end

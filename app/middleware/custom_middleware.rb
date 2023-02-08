@@ -15,8 +15,9 @@ class CustomMiddleware
   private
 
   def enqueu_logging_worker
-    DeviceCreator.perform_async(@env['HTTP_FCMTOKEN']) unless @env['HTTP_FCMTOKEN'].nil?
+    return if @env['HTTP_FCMTOKEN'].nil?
 
+    DeviceCreator.perform_async(@env['HTTP_FCMTOKEN'])
     enqueue_product_hit_logger
   end
 
