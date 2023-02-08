@@ -7,6 +7,6 @@ class ProductHitRepo
   end
 
   def create
-    ProductHit.create(product_id: product.id, device_id: device&.id)
+    ProductHit.create(product_id: product.id, fcm_token: device&.id)
   end
 end
