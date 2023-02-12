@@ -13,7 +13,7 @@ module Products
 
     def filter_products(category)
       filter = { filter: { status: :active, category_id: category.id } }
-      ProductFacade.new(filter).perform
+      ProductFacade.new(filter).perform.to_a
     end
   end
 end
