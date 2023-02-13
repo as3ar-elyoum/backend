@@ -21,6 +21,8 @@ jobs:
           POSTGRES_PASSWORD: password
       redis:
         image: redis:6.0
+        ports:
+          - "6379:6379"
     env:
       RAILS_ENV: test
       POSTGRES_DB: rails_test
