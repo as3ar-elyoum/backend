@@ -1,4 +1,4 @@
-FROM ruby:3.0
+FROM ruby:3.1
 RUN apt update --fix-missing
 
 RUN apt install -y build-essential libpq-dev libjpeg-dev libpng-dev imagemagick nano yarn git-core curl openssl libssl-dev
