@@ -19,6 +19,14 @@ jobs:
           POSTGRES_DB: rails_test
           POSTGRES_USER: rails
           POSTGRES_PASSWORD: password
+      redis:
+        image: redis:6.0
+    env:
+      RAILS_ENV: test
+      POSTGRES_DB: rails_test
+      POSTGRES_USER: rails
+      POSTGRES_PASSWORD: password
+      REDIS_URL: redis://redis:6379
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
