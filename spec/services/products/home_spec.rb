@@ -4,7 +4,7 @@ RSpec.shared_examples 'load home data' do
   end
 end
 
-RSpec.xdescribe Products::Home do
+RSpec.describe Products::Home do
   describe '#perform' do
     context 'when there are two active categories' do
       let(:active_category) { create(:category) }
