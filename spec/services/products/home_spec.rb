@@ -9,13 +9,13 @@ RSpec.describe Products::Home do
     context 'when there are two active categories' do
       let(:active_category) { create(:category) }
       let!(:inactive_category) { create(:category, :inactive) }
-      let!(:active_products) { create_list(:product, 2, :with_source, :active, category: active_category) }
+      let!(:active_product) { create(:product, :with_source, :active, category: active_category) }
       let!(:inactive_products) { create_list(:product, 2, :with_source, :inactive, category: active_category) }
 
       subject { described_class.new.perform }
 
       let(:expected_result) do
-        [{ category: active_category, products: active_products }]
+        [{ category: active_category, products: [active_product] }]
       end
       it_behaves_like 'load home data'
     end
