@@ -68,6 +68,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 group :development do
