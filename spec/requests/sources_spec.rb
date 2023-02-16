@@ -32,4 +32,19 @@ RSpec.describe SourcesController, type: :controller do
         expect(response).to have_http_status(:success)
     end
   end
+
+
+  describe '#scrap' do
+
+    before do
+      allow(Source).to receive(:find).and_return(source)
+      allow(source).to receive(:enqueue_scraper)
+    end
+
+    it "enqueues scraper on the source" do
+      expect(source).to receive(:enqueue_scraper)
+      post :scrap, params: { id: source.id }
+    end
+  end
+  
 end
