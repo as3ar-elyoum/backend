@@ -13,7 +13,6 @@ class SourcePage < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
-  delegate :parsed_selectors, to: :source
   delegate :source_config, to: :source
 
   def enqueue_scraper

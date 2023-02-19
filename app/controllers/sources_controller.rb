@@ -15,7 +15,7 @@ class SourcesController < ApplicationController
   def create
     @source = Source.new(source_params)
     if @source.save
-      redirect_to root_path, notice: 'Source was successfully created.'
+      redirect_to root_path, notice: 'Source was successfully created.', status: :created
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +24,11 @@ class SourcesController < ApplicationController
   def edit; end
 
   def update
-    redirect_to root_path if @source.update(source_params)
+    if @source.update(source_params)
+      redirect_to root_path, status: :ok
+    else
+      render :edit, status: :unprocessable_entity, notice: 'Source was not updated.'
+    end
   end
 
   def scrap
@@ -35,7 +39,8 @@ class SourcesController < ApplicationController
 
   def source_params
     params.require(:source).permit(:name, :url, :url_prefix, :active,
-                                   source_config_attributes: %i[name_selector price_selector image_url_selector description_selector products_url_selector])
+                                   source_config_attributes:
+                                   %i[name_selector price_selector image_url_selector description_selector products_url_selector])
   end
 
   def set_source
