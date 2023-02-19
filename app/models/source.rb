@@ -11,11 +11,6 @@ class Source < ApplicationRecord
   validates :url, presence: true, uniqueness: true, format: { with: URL_REGEXP }
   validates :url_prefix, format: { with: URL_REGEXP },
                          if: ->(object) { object.url_prefix.present? }
-
-  def parsed_selectors
-    JSON.parse(selectors)
-  end
-
   def enqueue_scraper
     source_pages.active.map(&:enqueue_scraper)
   end

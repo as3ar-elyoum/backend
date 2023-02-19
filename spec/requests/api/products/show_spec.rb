@@ -1,12 +1,13 @@
 RSpec.describe 'ProductsController#show', type: :request do
-  let!(:products) { create_list(:product, 5, :with_source, :active) }
+  let!(:product) { create(:product, :with_source, :active) }
+  let!(:prices) { create_list(:product_price, 2, product:) }
 
   describe 'GET /api/products/:id' do
     before do
-      # get "/api/products/#{products.first.id}"
+      get "/api/products/#{product.id}"
     end
     it 'returns status code 200' do
-      # expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:success)
     end
   end
 end

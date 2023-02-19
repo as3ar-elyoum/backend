@@ -7,6 +7,7 @@ FactoryBot.define do
 
   trait :active do
     status { :active }
+    price { Faker::Number.number(digits: 3) }
   end
   trait :inactive do
     status { :inactive }
