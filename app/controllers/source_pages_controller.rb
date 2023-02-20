@@ -14,7 +14,7 @@ class SourcePagesController < ApplicationController
 
   def update
     if @source_page.update(source_page_params)
-      redirect_to source_source_pages_path, notice: 'Source page was successfully updated.'
+      redirect_to source_source_pages_path, notice: 'Source page was successfully updated.', status: :ok
     else
       render :edit, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class SourcePagesController < ApplicationController
   def create
     @source_page = @source.source_pages.create(source_page_params)
     if @source_page.save
-      redirect_to edit_source_source_page_path(@source, @source_page)
+      redirect_to source_source_pages_path, notice: 'Source page was successfully created.', status: :created
     else
       render :new, status: :unprocessable_entity
     end

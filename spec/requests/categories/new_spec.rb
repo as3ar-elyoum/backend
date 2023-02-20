@@ -4,13 +4,13 @@ RSpec.describe CategoriesController, type: :controller do
     { category: { name: category.name, keywords: 'test, category', icon: 'fa fa-test', active: true } }
   end
 
-  describe '#index' do
+  describe '#new' do
     before do
-      get :index
+      get :new
     end
-    it 'returns status code 200' do
-      expect(response).to render_template(:index)
-      expect(response.status).to eq 200
+
+    it 'renders the new template' do
+      expect(response).to render_template(:new)
     end
   end
   
