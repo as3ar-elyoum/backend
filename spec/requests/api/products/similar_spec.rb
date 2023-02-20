@@ -1,12 +1,19 @@
 RSpec.describe 'ProductsController#show', type: :request do
-  let!(:products) { create_list(:product, 5, :with_source, :active) }
-
-  describe 'GET /api/products/:id' do
-    before do
-      # get "/api/products/#{products.first.id}"
-    end
-    it 'returns status code 200' do
-      # expect(response).to have_http_status(:success)
+  let(:source) { create(:source) }
+  let(:product) { create(:product, source:) }
+  let(:similar_products) { create_list(:product, 3, category: product.category, source:) }
+    
+  before do
+    (Products::Similar).any_instance.stub(perform: similar_products)
+  end
+  
+  describe '#similar' do
+    context '#successfully' do
+      it 'returns a list of similar products' do
+        get "/api/products/#{product.id}/similar", params: { id: product.id }
+        expect(assigns(:products)).to eq(similar_products)
+        expect(response).to have_http_status(:ok)
+      end
     end
   end
 end
