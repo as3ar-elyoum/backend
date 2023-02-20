@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   attribute :active, default: true
 
   validates :name, presence: true
-  validates :icon, presence: true, allow_blank: true
+  validates :icon, presence: true
 
   has_many :source_pages
   has_many :products
