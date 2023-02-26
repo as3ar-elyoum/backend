@@ -1,6 +1,3 @@
-require 'rails_helper'
-require 'webmock/rspec'
-
 WebMock.disable_net_connect!(allow_localhost: true)
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -16,14 +13,13 @@ RSpec.configure do |config|
 
   config.before(:each) do
     config.render_views
+    Product.any_instance.stub(:index_document)
+    Product.any_instance.stub(:delete_document)
 
     DatabaseCleaner.strategy = :deletion
     DatabaseCleaner.clean_with :truncation
 
     DatabaseCleaner.start
     DatabaseCleaner.clean
-
-    Product.any_instance.stub(:index_document)
-    Product.any_instance.stub(:delete_document)
   end
 end

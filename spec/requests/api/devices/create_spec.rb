@@ -1,7 +1,7 @@
 RSpec.describe Api::DevicesController, type: :controller do
   let(:test_token) { 'test_token' }
 
-  describe 'POST /api/devices/create' do
+  describe 'POST /api/devices' do
     context 'with valid parameters' do
       it 'creates a new device' do
         expect { post :create, params: { fcm_token: test_token } }.to change(Device, :count).by(1)
