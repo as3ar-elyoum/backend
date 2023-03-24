@@ -1,4 +1,4 @@
-# Crime Index
+# Price Index
 
 **Dependencies**
 
