@@ -48,7 +48,7 @@ gem 'bootsnap', require: false
 
 gem 'mechanize'
 
-gem 'sidekiq', '~> 6.5.7'
+gem 'sidekiq', '~> 7.0.8'
 gem 'sidekiq-cron'
 gem 'sidekiq-limit_fetch'
 
