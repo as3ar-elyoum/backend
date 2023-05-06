@@ -8,8 +8,7 @@ up:
 
 
 deploy:
-	docker-compose up -d backend
-	docker-compose up -d sidekiq
+	docker-compose -f docker-compose.production.yml up
 
 logs:
 	docker-compose logs -f backend

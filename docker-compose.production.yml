@@ -45,7 +45,6 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
       - redis
       - elasticsearch
     env_file:
@@ -60,7 +59,6 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - db
       - redis
       - backend
     networks:
