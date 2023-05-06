@@ -1,0 +1,79 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:6.0
+    restart: always
+    networks:
+      sharednetwork:
+  
+  elasticsearch:
+    image: elasticsearch:8.3.1
+    restart: on-failure
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      sharednetwork:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 800M
+        reservations:
+          memory: 300M
+  # kibana:
+  #   image: kibana:8.3.1
+  #   ports:
+  #     - 5601:5601
+  #   environment:
+  #     - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+  #   depends_on:
+  #     - elasticsearch
+  
+  backend:
+    image: priceindex-backend
+    build: .
+    entrypoint: /app/entrypoint.sh
+    ports:
+      - "8080:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+      - elasticsearch
+    env_file:
+      - environment.env
+    networks:
+      sharednetwork:
+    restart: always
+
+  sidekiq:
+    image: priceindex-backend
+    command: 'bundle exec sidekiq'
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+      - backend
+    networks:
+      sharednetwork:
+    env_file:
+      - environment.env
+    restart: always
+
+volumes:
+  postgres:
+  elasticsearch:
+  bundle_path:
+
+networks:
+  sharednetwork:
+    name: "sharednet"
