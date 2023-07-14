@@ -8,7 +8,7 @@ up:
 
 
 deploy:
-	docker-compose -f docker-compose.production.yml up
+	docker-compose -f docker-compose.production.yml up -d
 
 logs:
 	docker-compose logs -f backend
