@@ -61,17 +61,10 @@ services:
     depends_on:
       - redis
       - backend
-    networks:
-      sharednetwork:
     env_file:
       - environment.env
     restart: always
 
 volumes:
-  postgres:
   elasticsearch:
   bundle_path:
-
-networks:
-  sharednetwork:
-    name: "sharednet"
