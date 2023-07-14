@@ -52,6 +52,8 @@ services:
     networks:
       sharednetwork:
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   sidekiq:
     image: priceindex-backend
@@ -64,7 +66,8 @@ services:
     env_file:
       - environment.env
     restart: always
-
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 volumes:
   elasticsearch:
   bundle_path:
