@@ -14,7 +14,7 @@ services:
       - postgres:/var/lib/postgresql
 
   redis:
-    image: redis:6.0
+    image: redis
     restart: always
   
   elasticsearch:
