@@ -17,7 +17,6 @@ class Product < ApplicationRecord
   belongs_to :source_page, required: false
   belongs_to :category, required: false
   has_many :prices, class_name: 'ProductPrice', dependent: :destroy
-  has_many :logs, class_name: 'ProductLog'
   has_many :hits, class_name: 'ProductHit'
   scope :enabled, -> { where.not(status: [statuses[:disabled], statuses[:duplicate]]) }
   scope :categorized, -> { where.not(category_id: nil) }

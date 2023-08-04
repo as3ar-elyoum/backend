@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_05_184430) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_195310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,14 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_05_184430) do
     t.index ["product_id"], name: "index_product_hits_on_product_id"
   end
 
-  create_table "product_logs", force: :cascade do |t|
-    t.string "notes"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_logs_on_product_id"
-  end
-
   create_table "product_prices", force: :cascade do |t|
     t.bigint "product_id"
     t.decimal "price"
@@ -118,14 +110,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_05_184430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["source_id"], name: "index_source_configs_on_source_id"
-  end
-
-  create_table "source_page_logs", force: :cascade do |t|
-    t.string "notes"
-    t.bigint "source_page_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["source_page_id"], name: "index_source_page_logs_on_source_page_id"
   end
 
   create_table "source_pages", force: :cascade do |t|
