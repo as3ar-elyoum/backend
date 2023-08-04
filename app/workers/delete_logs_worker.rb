@@ -4,6 +4,5 @@ class DeleteLogsWorker
 
   def perform
     ProductLog.where('created_at < ?', 2.days.ago).delete_all
-    SourcePageLog.where('created_at < ?', 2.days.ago).delete_all
   end
 end
