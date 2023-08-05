@@ -5,7 +5,6 @@ class SourcePage < ApplicationRecord
   belongs_to :source
   belongs_to :category, required: false
   has_many :products
-  has_many :logs, class_name: 'SourcePageLog'
 
   validates :name, presence: true
   validates :url, presence: true, uniqueness: true, format: { with: URL_REGEXP }
