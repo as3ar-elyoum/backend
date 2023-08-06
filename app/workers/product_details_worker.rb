@@ -4,8 +4,5 @@ class ProductDetailsWorker
 
   def perform(product_id)
     Scrapers::ProductDetails.new(product_id).perform
-  rescue StandardError => e
-    error_details = "#{e.message} => #{e.backtrace.first}"
-    ProductLog.create(product_id:, notes: error_details)
   end
 end
